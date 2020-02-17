@@ -1,0 +1,19 @@
+html {
+  font-size: 10px;
+  background: url(https://i.imgur.com/b9r5sEL.jpg) bottom center;  /* 배경 이미지를 설정. 경로는 background-image: url("이미지 경로") 처럼 작성. bottom center 이미지의 좌표 설정 */
+  background-size: cover;  /* 배경 이미지의 가로 크기와 세로 크기를 정하는 속성. 배경을 사용하는 요소를 다 채울 수 있게 이미지를 확대 또는 축소하고, 가로 세로 비율을 유지 */
+}
+
+body, html {  /* 중복되는 스타일 내용을 태그, ID, CLASS 적용하기 위해서는 쉼표를 이용 */
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keys {  /* . 기호는 class 값을 선택자로 지정할 때 사용 */
+  display: flex;  /* flex를 사용하기 위해서는 컨테이너 태그에 display:flex 속성을 부여해야 한다. */
+  flex: 1;  /* 하나의 플렉스 아이템이 자신의 컨테이너가 차지하는 공간에 맞추기 위해 크기를 키우거나 줄이는 방법을 설정하는 속성. flex-grow를 제외한 개별 속성은 생략할 수 있다. 만약 flex: 1;로 작성하면 flex-grow: 1;과 같다. Item의 증가 너비 비율을 설정. */
+  min-height: 100vh;  /* 요소의 최소 높이를 설정. vh 요소는 높이값의 100분의 1의 단위. */
+  align-items: center;  /* 플렉스 요소의 수직 방향 정렬 방식을 설정 */
+  justify-content: center;  /* 플렉스 요소의 수평 방향 정렬 방식을 설정 */
+}
