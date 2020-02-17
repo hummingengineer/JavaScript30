@@ -17,3 +17,35 @@ body, html {  /* 중복되는 스타일 내용을 태그, ID, CLASS 적용하기
   align-items: center;  /* 플렉스 요소의 수직 방향 정렬 방식을 설정 */
   justify-content: center;  /* 플렉스 요소의 수평 방향 정렬 방식을 설정 */
 }
+
+.key {
+  border: .4rem solid black;      /* 요소의 테두리를 설정 */
+  border-radius: .5rem;             /* 요소의 바깥 테두리 경계의 모서리를 둥글게 만든다. */
+  margin: 1rem;                     /* 바깥 여백 영역을 설정 */
+  font-size: 1.5rem;                /* rem의 "r"은 바로 "root(최상위)"를 뜻한다. 상대적으로 크기를 정한다. 최상위 태그(요소)에 지정한 것을 기준으로 삼으며, 보통 최상위 태그는 html태그. */
+  padding: 1rem .5rem;              /* 안쪽 여백 */
+  transition: all .07s ease;        /* CSS 속성을 변경할 때 애니메이션 속도를 조절하는 방법을 제공. all은 모든 속성이 transition 효과를 얻는다 너비 확장과 높이 확장 모두 transition 효과를 얻는다.  */
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;   /* 글자에 그림자 효과를 주는 속성 */
+}
+
+.playing {
+  transform: scale(1.1);            /* 요소에 회전, 크기 조절, 기울이기, 이동 효과를 부여. transform의 scale로 요소를 확대 또는 축소할 수 있다. */
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;    /* display 속성은 요소를 어떻게 표시할지를 선택. 요소를 block 요소처럼 표시 따라서 요소 앞 뒤로 줄바꿈 된다. */
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;   /* 모든 글자를 대문자로 바꾼다. */
+  letter-spacing: .1rem;       /* 글자 사이의 간격 */
+  color: #ffc600;
+}
