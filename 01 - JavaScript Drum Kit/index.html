@@ -77,6 +77,8 @@
         // data-key=" " you need quotes around your actual number
         // When you hit the key, you can get the corresponding audio element for that specific key
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)  // attribute selector
+        // if there is no audio, we are just going to return. And that would just stop the function from running all together
+        if (!audio) return;  // stop the function from running all together
       })
     </script>
 
