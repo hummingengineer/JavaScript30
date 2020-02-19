@@ -69,6 +69,15 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script>
+      // listen for the keydown event and when that happens, run the function which will give us the event.
+      // The event(e) is just the object full of data describing what happened and it'll tell us.
+      // keydown 키보드 누름 이벤트
+      window.addEventListener('keydown', function (e) {
+        // select an audio element where it has a data-key
+        // data-key=" " you need quotes around your actual number
+        // When you hit the key, you can get the corresponding audio element for that specific key
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)  // attribute selector
+      })
     </script>
 
   </body>
