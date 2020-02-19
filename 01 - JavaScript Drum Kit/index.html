@@ -79,6 +79,12 @@
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)  // attribute selector
         // if there is no audio, we are just going to return. And that would just stop the function from running all together
         if (!audio) return;  // stop the function from running all together
+        // Audio 객체의 메서드인 play() 메서드는 미디어를 재생한다.
+        // F를 여러 번 누르더라도, 한번만 재생된다. it only plays once every so often
+        // 끝나기까지 2~3초가 걸리고, 끝난 다음에 다음 입력을 받기 때문이다. 끝나기 전에 입력한 키는 무시됨.
+        // 이를 해결하기 위해 audio.currentTime = 0; 추가.
+        audio.currentTime = 0  // it will rewind it to the start. currentTime은 음악의 현재 위치(초 단위)
+        audio.play()
       })
     </script>
 
