@@ -24,7 +24,7 @@ body, html {  /* 중복되는 스타일 내용을 태그, ID, CLASS 적용하기
   margin: 1rem;                     /* 바깥 여백 영역을 설정 */
   font-size: 1.5rem;                /* rem의 "r"은 바로 "root(최상위)"를 뜻한다. 상대적으로 크기를 정한다. 최상위 태그(요소)에 지정한 것을 기준으로 삼으며, 보통 최상위 태그는 html태그. */
   padding: 1rem .5rem;              /* 안쪽 여백 */
-  transition: all .07s ease;        /* CSS 속성을 변경할 때 애니메이션 속도를 조절하는 방법을 제공. all은 모든 속성이 transition 효과를 얻는다 너비 확장과 높이 확장 모두 transition 효과를 얻는다.  */
+  transition: all .07s ease;        /* CSS 속성을 변경할 때 애니메이션 속도를 조절하는 방법을 제공. all은 모든 속성이 transition 효과를 얻는다 너비 확장과 높이 확장 모두 transition 효과를 얻는다. .07s = 0.07s */
   width: 10rem;
   text-align: center;
   color: white;
