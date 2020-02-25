@@ -1,0 +1,63 @@
+<!-- 목표 -->
+<!-- 사진에서 두가지의 레인지 조절 기능과 colorpicker 기능을 넣으려 한다 -->
+
+<!-- 과정 -->
+<!-- 1. CSS 변수를 만든다(base색상, 기본 여백(spacing), 기본 흐림정도(blur)) -->
+<!-- 2. CSS변수를 통한 이미지, 텍스트 효과 지정 -->
+<!-- 3. 자바스크립트로 CSS 변수가 작동하도록 코드 작성 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Scoped CSS Variables and JS</title>
+  </head>
+
+  <body>
+
+    <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+    <div class="controls">
+      <!-- label은 폼의 양식에 이름 붙이는 태그. label의 for의 값과 양식의 id의 값이 같으면 연결된다. -->
+      <!-- <label> 태그는 <input> 태그를 도와주는 역할입니다. <input> 태그가 디자인 하기 힘들 때 <label> 태그로 연결해서 쉽게 디자인하거나 클릭 편의성을 높일 수 있다. -->
+      <!-- <label> 태그는 for 속성을 사용해서 <input> 태그의 id 속성에 연계해서 사용 -->
+      <label for="spacing">Spacing:</label>
+      <!-- type: 입력 태그의 유형. name: 서버로 전달되는 이름. -->
+      <!-- min속성과 max 속성은 input 요소에 입력할 수 있는 최솟값과 최댓값을 명시 -->
+      <!-- value 속성은 input 요소의 입력 필드(input field)에 나타나는 초깃값을 설정 -->
+      <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+      <label for="blur">Blur:</label>
+      <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+      <label for="base">Base Color</label>
+      <input id="base" type="color" name="base" value="#ffc600">
+    </div>
+
+    <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+
+    <style>
+
+      /* misc styles, nothing to do with CSS variables */
+
+      body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+      }
+
+      .controls {
+        margin-bottom: 50px;
+      }
+
+      input {
+        width: 100px;
+      }
+    </style>
+
+    <script>
+    </script>
+
+  </body>
+</html>
