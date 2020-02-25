@@ -37,10 +37,17 @@
     <style>
       /* HTML 요소중 가장 상위 요소에 적용 */
       /* :root에 변수를 선언하는 것은 전역변수를 생성한다는 뜻 */
+      /* 어느 곳에서나 사용할 수 있게 하려면 :root에 정의 */
       :root {
         --base: #ffc600;  /*  base라는 CSS 변수를 생성 */
         --spacing: 10px;
         --blur: 10px;
+      }
+
+      /* img는 태그 선택자. 해당되는 태그 전부에 스타일을 적용 */
+      /* When you want to use a varaible in CSS, you say "var" and you pass it the spacing. */
+      img {
+        padding: var(--spacing);  /* --는 SAS에서 $와 같다. CSS에서 변수 사용하는 방법: property: var( --variable-name ) */
       }
 
       /* misc styles, nothing to do with CSS variables */
