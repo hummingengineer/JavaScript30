@@ -48,6 +48,8 @@
       /* When you want to use a varaible in CSS, you say "var" and you pass it the spacing. */
       img {
         padding: var(--spacing);  /* --는 SAS에서 $와 같다. CSS에서 변수 사용하는 방법: property: var( --variable-name ) */
+        background: var(--base);
+        filter: blur(var(--blur));  /* 흐림 효과나 색상 변형 등 그래픽 효과를 요소에 적용 */
       }
 
       /* misc styles, nothing to do with CSS variables */
