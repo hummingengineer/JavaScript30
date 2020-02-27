@@ -78,6 +78,15 @@
     </style>
 
     <script>
+      // Select all of our inputs on the page
+      const inputs = document.querySelectorAll('controls input')  // 'inputs' is NodeList not Array
+
+      function handleUpdate() {
+        console.log(this.value);
+      }
+
+      inputs.forEach(input => input.addEventListener('change', handleUpdate))
+
     </script>
 
   </body>
