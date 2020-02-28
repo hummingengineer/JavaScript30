@@ -86,7 +86,7 @@
         // dataset is a object that will contain all the data attributes from that specific element.
         // In this case, it's just sizing. Check Javascript 30 tutorial 09:00 section.
         // .dataset - data-~~로 이루어진 내용들 데이터정보 호출 ex) data-sizing속성은 dataset.sizing으로 호출
-        const suffix = this.dataset
+        const suffix = this.dataset.sizing || ''  // For some of them that don't have a sizing like the color one, so I'm just going to say "or nothing".
       }
 
       inputs.forEach(input => input.addEventListener('change', handleUpdate))
