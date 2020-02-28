@@ -6,6 +6,12 @@
 <!-- 2. CSS변수를 통한 이미지, 텍스트 효과 지정 -->
 <!-- 3. 자바스크립트로 CSS 변수가 작동하도록 코드 작성 -->
 
+<!-- 결론 -->
+<!-- When you use a CSS variable, you can then update that variable on any element and any selectors that are inside of that element that reference that variable will be using it -->
+
+<!-- 참고 -->
+<!-- Much like the CSS cascade, the closer one will always win out -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +95,8 @@
         const suffix = this.dataset.sizing || ''  // For some of them that don't have a sizing like the color one, so I'm just going to say "or nothing".
 
         // The selected value is changed, but there is no 'px' appended to the end.
-        document.documentElement.style.setProperty(`--${this.name}`, this.value)
+        // So we add suffix variable to the end.
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
       }
 
       inputs.forEach(input => input.addEventListener('change', handleUpdate))
