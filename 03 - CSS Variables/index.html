@@ -87,6 +87,9 @@
         // In this case, it's just sizing. Check Javascript 30 tutorial 09:00 section.
         // .dataset - data-~~로 이루어진 내용들 데이터정보 호출 ex) data-sizing속성은 dataset.sizing으로 호출
         const suffix = this.dataset.sizing || ''  // For some of them that don't have a sizing like the color one, so I'm just going to say "or nothing".
+
+        // The selected value is changed, but there is no 'px' appended to the end.
+        document.documentElement.style.setProperty(`--${this.name}`, this.value)
       }
 
       inputs.forEach(input => input.addEventListener('change', handleUpdate))
