@@ -29,10 +29,20 @@
         { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
       ]
 
+      // the last name, comma, space, the first name
       const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William']
       
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
+      // Get inventors who were born in the 1500s
+      // The way that a filter works is you pass it a function and that function is going to loop over every single item in our array.
+      // We loop over and for each inventor, we can decide whether we want to keep it or not.
+      const fifteen = inventors.filter(function(inventor) {
+        if(inventor.year >= 1500 && inventor.year < 1600) return true  // By returning true, that means we keep it.
+        // You don't have to return 'false' because if you do not return anything other than true, or something that is truthy, it will just throw it in the garbage.
+        // So there's no need to return false here.
+      })
+      console.table(fifteen)
 
       // Array.prototype.map()
       // 2. Give us an array of the inventors first and last names
