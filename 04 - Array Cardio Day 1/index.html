@@ -37,11 +37,7 @@
       // Get inventors who were born in the 1500s
       // The way that a filter works is you pass it a function and that function is going to loop over every single item in our array.
       // We loop over and for each inventor, we can decide whether we want to keep it or not.
-      const fifteen = inventors.filter(function(inventor) {
-        if(inventor.year >= 1500 && inventor.year < 1600) return true  // By returning true, that means we keep it.
-        // You don't have to return 'false' because if you do not return anything other than true, or something that is truthy, it will just throw it in the garbage.
-        // So there's no need to return false here.
-      })
+      const fifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600)
       console.table(fifteen)
 
       // Array.prototype.map()
