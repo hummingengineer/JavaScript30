@@ -44,9 +44,8 @@
       // 2. Give us an array of the inventors first and last names
       // Map does something with that array and then returns a new array but of the same length.
       // Map will always return the same amount of items as you give it.
-      const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last)
+      const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
       console.log(fullNames)
-
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
