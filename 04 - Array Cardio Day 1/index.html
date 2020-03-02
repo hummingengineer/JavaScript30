@@ -49,6 +49,17 @@
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
+      // sort함수는 위 함수들(filter, map)과는 다르게 새로운 배열을 만들어 반환하는 것이 아니라 기존의 함수를 정렬만 시켜준다.
+      // 또 parameter로 함수를 넘겨주는 것이 필수는 아니다. 만약 아무 함수도 넘겨주지 않고 array.sort()같은 형태로 실행하게 된다면 인자들의 유니코드 순서대로 배열을 정렬시킨다.
+      // 함수를 넘겨준다면 해당 함수는 두 개의 인자를 받아 비교하는 compareFunction이어야 한다.
+      // 배열에서 비교 할 요소 두 가지를 a, b라고 할 때 compareFunction(a, b)의 return 값이 0보다 작을경우 a를 b보다 앞에 정렬시키고, 0보다 클 경우에는 b를 앞으로 정렬시킨다.
+      // sort() 에 먹인 함수가 음수를 리턴하면 그대로, 양수를 리턴하면 둘의 순서를 바꾼다.
+      // compareFunction(a, b)이 0보다 작은 경우 a를 b보다 낮은 색인으로 정렬합니다. 즉, a가 먼저옵니다.
+      const ordered = inventors.sort(function(firstPerson, secondPerson) {
+        if(firstPerson.year > secondPerson.year) return 1;
+        else return -1;
+      })
+      console.table(ordered)
 
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
