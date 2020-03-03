@@ -59,7 +59,16 @@
       console.table(ordered)
 
       // Array.prototype.reduce()
-      // 4. How many years did all the inventors live all together?
+      // 4. How many years did all the inventors live all together?  모든 inventor 들의 살아온 시간들의 합
+      // Reduce will do is, where like a sort in a map, they will just take items in and either sort them or they will turn them into something else, or they will filter them down.
+      // Reduce will do is allow you to sort of build something on every single one.
+      // reduce() 함수는 두 개의 파라미터를 받는데, 첫번째는 reducer 함수, 두번째는 초기값이다.
+      // reduce() 함수는 누적계산기이다.
+      let totalYears = 0;
+      for (let i=0; i<inventors.length; ++i) {
+        totalYears += inventors[i].year
+      }
+      console.log(totalYears)
 
       // 5. Sort the inventors by years lived
 
