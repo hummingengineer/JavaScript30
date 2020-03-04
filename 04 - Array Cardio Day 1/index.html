@@ -84,9 +84,9 @@
       // 5. Sort the inventors by years lived
       // sort() 에 들어간 함수가 음수를 리턴하면 그대로, 양수를 리턴하면 둘의 순서를 바꾼다.
       const oldest = inventors.sort(function(a, b) {
-        const lastGuy = a.passed - a.year
-        const nextGuy = b.passed - b.year
-        return lastGuy > nextGuy ? -1 : 1
+        const lastInventor = a.passed - a.year
+        const nextInventor = b.passed - b.year
+        return lastInventor > nextInventor ? -1 : 1
       })
       console.table(oldest)
 
