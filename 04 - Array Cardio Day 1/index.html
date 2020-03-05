@@ -95,7 +95,16 @@
       // You can call query selector on any existing DOM element
       const category = document.querySelector('.mw-category')
       // List of links
-      const links = category.querySelectorAll('a')
+      // const links = category.querySelectorAll('a')  // NodeList
+      // Convert a list of links to a list of names, and filter the list of names for only ones that include the actual names.
+      // const de = links.map(link => link.textContent)  // Query selector will return to you, a NodeList. It doens't have map method. If you open up the _proto_, you don't see map method.
+      // So we have to change the NodeList into an Array. There are two ways.
+      // (1) Frist, you can just wrap the entire thing in "Array.from"
+      // const links = Array.from(category.querySelectorAll('a'))
+      // (2) Or you can create an Array with "ES6 spread" to spread every single item into the array.
+      // A spread will take every item out of something initerable, which in this case this is going to be a nodelist, and put it into the containing array.
+      const links = [...category.querySelectorAll('a')]
+      const de = links.map(link => link.textContent)
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
