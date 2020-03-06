@@ -114,7 +114,9 @@
       const alpha = people.sort(function(lastOne, nextOne) {
         // 문자열에 splite(‘, ‘) function을 써서 ‘, ‘를 기준으로 문자를 잘라낸다
         // 구조 분해 할당
-        const [last, first] = lastOne.split(', ')
+        const [aLast, aFirst] = lastOne.split(', ')
+        const [bLast, bFirst] = nextOne.split(', ')
+        return aLast > bLast ? 1 : -1
       })
 
       // 8. Reduce Exercise
