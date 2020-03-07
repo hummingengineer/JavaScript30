@@ -122,8 +122,13 @@
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
-
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ]
+
+      // We're going to loop over every single one.
+      const transportation = data.reduce(function(obj, item) {
+        console.log(item)
+        return obj
+      }, {})  // We're just going to start with a blank object.
 
     </script>
 
