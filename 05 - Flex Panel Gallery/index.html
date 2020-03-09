@@ -64,6 +64,12 @@
         background-position: center;
         /* Each of them are going to evenly distribute the extra space among each other. */
         flex: 1;
+        justify-content: center;
+        align-items: center;
+        /* An element in CSS can be both a flex item, which it is right here, as well as a flex container. */
+        display: flex;
+        /* This will vertically center them in the middle. */
+        flex-direction: column;
       }
 
       .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -72,13 +78,18 @@
       .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
       .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
 
-      /* Flex Children */
+      /* Flex Children (Flex Items). Each of the flex items */
       /* .panel 의 직계 자식인 "모든" element 를 선택 */
       /* .panel> 는 panel 클래스의 (.) 자식 속성으로 있는 (>) 모든 요소를 (*) 선택 */
       .panel > * {
         margin: 0;
         width: 100%;
         transition: transform 0.5s;
+        border: 1px solid red;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       /* .panel 의 자식인 모든 p element 를 선택 */
