@@ -47,6 +47,8 @@
         display: flex;
       }
 
+      /* Flex of 1 means that each of them are going to evenly distribute the extra room. */
+      /* class="panel panel2 open" 하게 되면 애니메이션 효과(트랜지션 효과)가 일어나게 되는데 그 이유는 아래의 transition 속성 때문이다 */
       .panel {
         background: #6B0F9C;
         box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
@@ -55,6 +57,7 @@
         align-items: center;
         /* Safari transitionend event.propertyName === flex */
         /* Chrome + FF transitionend event.propertyName === flex-grow */
+        /* We're using these cubic-beziers that we've done in previous classes */
         transition:
           font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
           flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
@@ -124,7 +127,10 @@
       }
 
       /* panel 클래스의 자식 속성인 모든 open 속성에 적용 */
+      /* By giving it a flex of 5, what that means is that when it has a class of open, it's going to take 5 times the amount of extra room as the rest of them because they are regular flex of 1 */
+      /* flex가 값을 5로 가지게 되면 그만큼 더 많은 공간을 차지하게 된다 */
       .panel.open {
+        flex: 5;
         font-size: 40px;
       }
     </style>
