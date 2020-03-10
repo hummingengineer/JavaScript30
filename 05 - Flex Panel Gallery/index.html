@@ -68,7 +68,7 @@
         align-items: center;
         /* An element in CSS can be both a flex item, which it is right here, as well as a flex container. */
         display: flex;
-        /* This will vertically center them in the middle. */
+        /* This will vertically center them in the middle. Row is default */
         flex-direction: column;
       }
 
@@ -90,6 +90,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      /* These codes will put them off screen */
+      /* 화면 밖으로 이동 */
+      .panel > *:first-child {  /* Represents an element that is the first child of some other element. Each of the first children are going to be -100% */
+        transform: translateY(-100%);
+      }
+      .panel > *:last-child {
+        transform: translateY(100%);
+      }
+      /* These mean that if we take any one of panel classes, and add a class of open-active, it will animate itself in or take it off (go away) */
+      /* panel 클래스에 open-active 클래스가 추가되면 다시 화면 안쪽 원래 자리로 돌아온다 */
+      .panel.open-active > *:first-child {
+        transform: translateY(0);
+      }
+      .panel.open-active > *:last-child {
+        transform: translateY(0);
       }
 
       /* .panel 의 자식인 모든 p element 를 선택 */
