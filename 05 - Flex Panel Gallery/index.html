@@ -181,6 +181,7 @@
       // What we want to do here is we don't want to run the function.
       // And we just want to give it reference to the function and say, "Hey, when someone clicks me, make sure that you go find this function and run it"
       panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+      panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
     </script>
 
   </body>
