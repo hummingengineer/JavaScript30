@@ -177,14 +177,16 @@
       }
 
       function toggleActive(e) {
-        console.log(e.propertyName)
-        // this.classList.toggle('open-active')
+        if(e.propertyName.includes('flex')) {
+          this.classList.toggle('open-active')
+        }
       }
 
       // Each of the panels we're going to listen for a click.
       // toggleOpen() 이라고 적지 않는 이유는 페이지 로드 시에 시작되어버리기 때문이다 Because that would run on page load.
       // What we want to do here is we don't want to run the function.
       // And we just want to give it reference to the function and say, "Hey, when someone clicks me, make sure that you go find this function and run it"
+      // We're listening for a click on each panel. When someone clicks we're going to open it.
       panels.forEach(panel => panel.addEventListener('click', toggleOpen))
 
       // The second step is that once this has finished transitioning itself open, that's when I want to bring in the word from the top and bring in the word from the bottom.
