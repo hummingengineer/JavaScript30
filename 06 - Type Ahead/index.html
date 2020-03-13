@@ -23,6 +23,19 @@
 
   <script>
     const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    // We fetch the data which is a huge array and then once that data is back, whenever someone types into this specific box, we're going to filter that array down to a subset of all of the ones that either the city name or the state name will match.
+    // First, we need an empty array to put our cities into.
+    const cities = [];
+
+    // Fetch returns what's called a promise which is sort of like a something will eventually come back from this fetch.
+    fetch(endpoint)
+    // It's going to return to us just like a blob of data.
+    // .json() method is in _proto_
+    // .json() method returns another promise
+      .then(blob => blob.json())
+    // raw data
+      .then(data => console.log(data))
   </script>
 
 </html>
