@@ -26,7 +26,7 @@
 
     // We fetch the data which is a huge array and then once that data is back, whenever someone types into this specific box, we're going to filter that array down to a subset of all of the ones that either the city name or the state name will match.
     // First, we need an empty array to put our cities into.
-    const cities = [];
+    const cities = []
 
     // Fetch returns what's called a promise which is sort of like a something will eventually come back from this fetch.
     fetch(endpoint)
@@ -35,7 +35,8 @@
     // .json() method returns another promise
       .then(blob => blob.json())
     // raw data
-      .then(data => console.log(data))
+    // ★★★★★ Spread into push method. Same as cities = data
+      .then(data => cities.push(...data))
   </script>
 
 </html>
