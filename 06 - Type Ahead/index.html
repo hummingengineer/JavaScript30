@@ -37,6 +37,20 @@
     // raw data
     // ★★★★★ Spread into push method. Same as cities = data
       .then(data => cities.push(...data))
+
+      function findMatches(wordToMatch, cities) {
+        return cities.filter(place => {
+          // 'G' is going to be global meaning it's going to look through the entire string for that specific one. 전역 검색
+          // 'I' is going to match lowercase as well as uppercase regardless of what you're searching with. 대소문자 구분 없는 검색
+          const regex = new RegExp(wordToMatch, 'gi')
+          // here we need to figure out if the city on state matches what was searched
+          // if it does match, then it will be true.
+          // How do you put a variable into a regular expression?
+          // You can't do it in this syntax here. We need to actually create a regular expression outside of it with RegExp().
+          // If the city is true or the state is true, the whole thing is going to be true. 둘 중 하나만 참이면 filter로 반환된다.
+          return place.city.match(regex) || place.state.match(regex)
+        })
+      }
   </script>
 
 </html>
