@@ -51,6 +51,20 @@
           return place.city.match(regex) || place.state.match(regex)
         })
       }
+
+      // Whenever I typed into, it should run this caller function find ones that match it.
+      function displayMatches() {
+        const matchArray = findMatches(this.value, cities)
+        console.log(matchArray)
+      }
+
+      const searchInput = document.querySelector('.search')
+      const suggestions = document.querySelector('.suggestions')
+
+      // When the input changes, we're going to run displayMatches()
+      searchInput.addEventListener('change', displayMatches)
+      // Every time we key up, it's going to tell us what the person has typed into that box.
+      searchInput.addEventListener('keyup', displayMatches)
   </script>
 
 </html>
