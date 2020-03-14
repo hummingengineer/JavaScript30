@@ -53,9 +53,23 @@
       }
 
       // Whenever I typed into, it should run this caller function find ones that match it.
+      // 우선 findMatches 를 통해 맞는 리스트를 확보한다.
+      // 그리고 화면에 뿌려줄 html 을 만들어준다.
       function displayMatches() {
         const matchArray = findMatches(this.value, cities)
-        console.log(matchArray)
+        // This map method is going to return an array when we really want just one string.
+        // 리턴값이 html 들의 리스트이고, 그걸 join 으로 하나로 묶어준다.
+        const html = matchArray.map(place => {
+          return `
+            <li>
+              <span class="name">${place.city}, ${place.state}</span>
+              <span class="population">${place.population}</span>
+            </li>
+          `
+        }).join('')
+        // 요소(element)의 내용을 변경
+        // 해당 class 안을 통째로 바꿔 넣어주라는 의미
+        suggestions.innerHTML = html
       }
 
       const searchInput = document.querySelector('.search')
