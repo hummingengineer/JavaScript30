@@ -60,9 +60,12 @@
         // This map method is going to return an array when we really want just one string.
         // 리턴값이 html 들의 리스트이고, 그걸 join 으로 하나로 묶어준다.
         const html = matchArray.map(place => {
+          const regex = new RegExp(this.value, 'gi')
+          // regex와 일치되는 것을 `<span class="h1">${this.value}</span>` 문자열로 교체
+          const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
           return `
             <li>
-              <span class="name">${place.city}, ${place.state}</span>
+              <span class="name">${cityName}, ${place.state}</span>
               <span class="population">${place.population}</span>
             </li>
           `
