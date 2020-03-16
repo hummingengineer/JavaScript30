@@ -52,6 +52,11 @@
         })
       }
 
+      // 자릿수에 맞게 콤마 기호를 넣어주는 함수
+      function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+
       // Whenever I typed into, it should run this caller function find ones that match it.
       // 우선 findMatches 를 통해 맞는 리스트를 확보한다.
       // 그리고 화면에 뿌려줄 html 을 만들어준다.
@@ -67,7 +72,7 @@
           return `
             <li>
               <span class="name">${cityName}, ${stateName}</span>
-              <span class="population">${place.population}</span>
+              <span class="population">${numberWithCommas(place.population)}</span>
             </li>
           `
         }).join('')
