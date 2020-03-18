@@ -38,6 +38,10 @@
       console.log({isAdult})
 
       // Array.prototype.every() // is everyone 19 or older?
+      // every() 메서드는 배열 안의 모든 요소가 주어진 판별 함수를 통과하는지 테스트합니다.
+      const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19)
+      // allAdults returns false because not every single item in the array is going to meet our criteria.
+      console.log({allAdults})
 
       // Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
