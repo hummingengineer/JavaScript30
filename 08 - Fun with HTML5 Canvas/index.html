@@ -8,12 +8,17 @@
 
   <body>
 
-    <canvas id="draw" width="800" height="800">
-      <!---->
-    </canvas>
+    <canvas id="draw" width="800" height="800"/>
 
     <script>
-      //
+      const canvas = document.querySelector('#draw')
+      // You don't draw directly on the canvas element in HTML, but you draw on something called the context.
+      const ctx = canvas.getContext('2d')
+
+      // We need to do is size up our canvas to be the exact width of the window. We want to resize it before we do any of our drawings.
+      // It should be as big as the actual window is.
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
     </script>
 
     <style>
