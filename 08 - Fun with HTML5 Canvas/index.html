@@ -26,6 +26,23 @@
       ctx.lineJoin = 'round'
       // 선의 끝모양을 지정
       ctx.lineCap = 'round'
+
+      // When you click down, we set it to true.
+      // And when you click up, you let go off the button, we're going to set it to false.
+      // It means that we actually draw to this canvas, or is someone moving their mouse without doing anything.
+      let isDrawing = false
+      let lastX = 0
+      let lastY = 0
+
+      // draw function is going to be called whenever I move my mouse on top of the canvas.
+      function draw(e) {
+        console.log(e)
+      }
+
+      // We'll listen for our mousemove event on the canvas.
+      // When you move your mouse on the canvas, draw function will activate.
+      canvas.addEventListener('mousemove', draw)
+
     </script>
 
     <style>
