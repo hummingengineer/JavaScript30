@@ -35,13 +35,20 @@
       let lastY = 0
 
       // draw function is going to be called whenever I move my mouse on top of the canvas.
+      // But we want to only do it when the person has clicked down.
       function draw(e) {
-        console.log(e)
+        if (!isDrawing) return  // stop the function from running when they are not moused down.
       }
 
       // We'll listen for our mousemove event on the canvas.
       // When you move your mouse on the canvas, draw function will activate.
       canvas.addEventListener('mousemove', draw)
+      canvas.addEventListener('mousedown', () => isDrawing = true)
+      canvas.addEventListener('mouseup', () => isDrawing = false)
+      // When you click down, let your mouse leave the actual window here and let go and come back, and it's still going to think that the mouse is down because you never triggered a mouseup on that event.
+      // 화면 밖으로 마우스가 나갔을 때를 위해 필요하다
+      // When you mouse out it's going to automatically say, "you're no longer drawing"
+      canvas.addEventListener('mouseout', () => isDrawing = false)
 
     </script>
 
