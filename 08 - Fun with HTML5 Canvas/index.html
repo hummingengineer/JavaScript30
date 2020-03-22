@@ -31,6 +31,7 @@
       // And when you click up, you let go off the button, we're going to set it to false.
       // It means that we actually draw to this canvas, or is someone moving their mouse without doing anything.
       let isDrawing = false
+      // If set like this, we always start from 0, and go to wherever the user's mouse is actually moving.
       let lastX = 0
       let lastY = 0
 
@@ -39,9 +40,14 @@
       function draw(e) {
         if (!isDrawing) return  // stop the function from running when they are not moused down.
         ctx.beginPath()
+        // Start from
         ctx.moveTo(lastX, lastY)
+        // Go to
         ctx.lineTo(e.offsetX, e.offsetY)
         ctx.stroke()
+        // We want to update the lastX and the lastY variables to be wherever they were.
+        lastX = e.offsetX
+        lastY = e.offsetY
       }
 
       // We'll listen for our mousemove event on the canvas.
