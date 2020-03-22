@@ -46,8 +46,8 @@
         ctx.lineTo(e.offsetX, e.offsetY)
         ctx.stroke()
         // We want to update the lastX and the lastY variables to be wherever they were.
-        lastX = e.offsetX
-        lastY = e.offsetY
+        // Destructuring an array (ES6)
+        [lastX, lastY] = [e.offsetX, e.offsetY]
       }
 
       // We'll listen for our mousemove event on the canvas.
