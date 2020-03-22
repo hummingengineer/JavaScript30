@@ -38,6 +38,10 @@
       // But we want to only do it when the person has clicked down.
       function draw(e) {
         if (!isDrawing) return  // stop the function from running when they are not moused down.
+        ctx.beginPath()
+        ctx.moveTo(lastX, lastY)
+        ctx.lineTo(e.offsetX, e.offsetY)
+        ctx.stroke()
       }
 
       // We'll listen for our mousemove event on the canvas.
