@@ -20,12 +20,15 @@
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       
+      // 선 설정
       // 선 색 지정
       ctx.strokeStyle = '#BADA55'
       // 선이 만나는 지점의 모양을 지정
       ctx.lineJoin = 'round'
       // 선의 끝모양을 지정
       ctx.lineCap = 'round'
+      // 이후 그려질 선의 두께를 설정
+      ctx.lineWidth = 100
 
       // When you click down, we set it to true.
       // And when you click up, you let go off the button, we're going to set it to false.
