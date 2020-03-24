@@ -37,11 +37,15 @@
       // If set like this, we always start from 0, and go to wherever the user's mouse is actually moving.
       let lastX = 0
       let lastY = 0
+      // https://mothereffinghsl.com/
+      let hue = 0
+
 
       // draw function is going to be called whenever I move my mouse on top of the canvas.
       // But we want to only do it when the person has clicked down.
       function draw(e) {
         if (!isDrawing) return  // stop the function from running when they are not moused down.
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
         ctx.beginPath()
         // Start from
         ctx.moveTo(lastX, lastY)
@@ -51,6 +55,7 @@
         // We want to update the lastX and the lastY variables to be wherever they were.
         // Destructuring an array (ES6)
         [lastX, lastY] = [e.offsetX, e.offsetY]
+        hue++
       }
 
       // We'll listen for our mousemove event on the canvas.
