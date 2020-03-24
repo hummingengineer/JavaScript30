@@ -56,6 +56,7 @@
         // Destructuring an array (ES6)
         [lastX, lastY] = [e.offsetX, e.offsetY]
         hue++
+        if (hue >= 360) hue = 0
       }
 
       // We'll listen for our mousemove event on the canvas.
