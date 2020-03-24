@@ -39,7 +39,8 @@
       let lastY = 0
       // https://mothereffinghsl.com/
       let hue = 0
-
+      // This means that it's going to be building up.
+      let direction = true
 
       // draw function is going to be called whenever I move my mouse on top of the canvas.
       // But we want to only do it when the person has clicked down.
@@ -57,6 +58,18 @@
         [lastX, lastY] = [e.offsetX, e.offsetY]
         hue++
         if (hue >= 360) hue = 0
+
+        // We're incrementing it from 0 all the way to 100.
+        // If you satisfy the condition, then flip the direction.
+        if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) direction = !direction
+
+        // But then once we hit 100, we're going to go from 100 to 99 to 98, all the way down.
+        if (direction) {
+          ctx.lineWidth++
+        }
+        else {
+          ctx.lineWidth--
+        }
       }
 
       // We'll listen for our mousemove event on the canvas.
