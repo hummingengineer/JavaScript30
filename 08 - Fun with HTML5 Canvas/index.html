@@ -29,6 +29,9 @@
       ctx.lineCap = 'round'
       // 이후 그려질 선의 두께를 설정
       ctx.lineWidth = 100
+      // If you've worked with Photoshop blend modes, you can use blend modes inside of context.
+      // They will sort of blend each other as you draw over top of each other.
+      ctx.globalCompositeOperation = 'multiply'
 
       // When you click down, we set it to true.
       // And when you click up, you let go off the button, we're going to set it to false.
