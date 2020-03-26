@@ -1,3 +1,15 @@
+<!-- Dev tools & console tricks -->
+
+<!-- 1. DOM Breakpoints -->
+<!-- DOM 노드 또는 그 하위 요소를 변경하는 코드에서 일시 중지하고 싶을 때 DOM 변경 중단점을 사용한다. -->
+<!-- 개발자 도구 Elements 탭에서, 특정 엘리먼트를 선택하고 우클릭 후 Break on...을 눌러 중단점을 확인할 수 있습니다. -->
+<!-- Attributes Modifications를 선택한 상태에서 h1을 클릭하면, 중단점이 표시됩니다. 재생버튼처럼 생긴 걸 누르면 차례로 중단점이 납니다. -->
+<!-- DevTools -> Elements -> Break on -> attribute modifications -->
+<!-- node removal (when you remove a child) subtree modifications (To change one of the children's texts or attributes or something like that) -->
+<!-- Subtree Modifications 자식 요소가 추가, 삭제, 변경됐을 경우 break 합니다. -->
+<!-- Attributes Modifications 요소의 속성이 바뀐 경우 break 합니다. -->
+<!-- Node Removal 요소가 완전히 사라진 경우 break 합니다. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +31,10 @@
       }
 
       // Regular
+      console.log('hello')
 
       // Interpolated
+      console.log('Hello I am a %s string!', 'test1')
 
       // Styled
 
@@ -47,3 +61,7 @@
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- https://velog.io/@sgyoon/2019-11-09-01 -->
+<!-- https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints?hl=ko -->
