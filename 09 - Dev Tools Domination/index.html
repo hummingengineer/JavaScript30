@@ -64,7 +64,16 @@
       // console.dir() is going to allow you to open it up and take a look at the classList
       console.dir(p)
 
+      console.clear()
+
       // Grouping together
+      dogs.forEach(dog => {
+        console.group(`${dog.name}`)
+        console.log(`This is ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age} years old`)
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+        console.groupEnd(`${dog.name}`)  // The parameter should be same as console.group()
+      })
 
       // counting
 
