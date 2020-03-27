@@ -77,8 +77,35 @@
       })
 
       // counting
+      // Count however many times you use a specific word, or number, or object, or DOM node, or anything that you have
+      // 들어온 인자가 호출된 수만큼 증가된 숫자가 표시된다.
+      console.count('Wes')
+      console.count('Wes')
+      console.count('Steve')
+      console.count('Steve')
+      console.count('Wes')
+      console.count('Steve')
+      console.count('Wes')
+      console.count('Steve')
+      console.count('Steve')
+      console.count('Steve')
+      console.count('Steve')
+      console.count('Steve')
 
       // timing
+      // If you want to see how long something takes
+      console.time('fetching data')
+      fetch('https://api.github.com/users/wesbos')
+        .then(data => data.json())
+        .then(data => {
+          // When you are done, you simply run console.timeEnd()
+          // console.timeEnd()에 들어갈 인자는 console.time()에 들어갈 인자와 같다
+          console.timeEnd('fetching data')
+          console.log(data)
+        })
+      
+      // table
+      console.table(dogs)
 
     </script>
 
