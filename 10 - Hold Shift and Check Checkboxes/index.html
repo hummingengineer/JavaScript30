@@ -108,8 +108,13 @@
     <script>
       const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
 
+      let lastChecked
+
       function handleCheck(e) {
-        console.log(e)
+        // Check if they had the shift key down
+        if (e.shiftkey) {
+          //
+        }
       }
       
       checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck))
