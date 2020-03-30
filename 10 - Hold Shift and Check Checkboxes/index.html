@@ -115,7 +115,8 @@
     <script>
       const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
 
-      // Log first checked checkbox
+      // currently checked one
+      // 선택된 체크박스들 중 처음과 끝이 들어가게 된다
       let lastChecked
 
       function handleCheck(e) {
@@ -124,7 +125,7 @@
         // So, Check that they are checking it too
         // Therefore, Check if they had the shift key down AND check that they are checking it
 
-        let inbetween = false
+        let inBetween = false
 
         // shiftkey event means that they were holding it down
         // If the shift key is down and they are checking the box
@@ -132,7 +133,15 @@
           // go ahead and do what we please
           // Loop over every single checkbox
           checkboxes.forEach(checkbox => {
-            console.log(checkbox)
+            if (checkbox === this || checkbox === lastChecked) {
+              // Once we hit that first one, it's going to be true
+              inBetween = !inBetween
+              console.log('Starting to check them in between!')
+            }
+
+            if (inBetween) {
+              checkbox.checked = true
+            }
           })
         }
 
