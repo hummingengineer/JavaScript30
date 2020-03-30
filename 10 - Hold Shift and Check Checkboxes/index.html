@@ -28,15 +28,22 @@
         border-bottom: 1px solid #F1F1F1;
       }
 
+      /* 요소:last-child {} 부모 요소 안에 있는 마지막 자식만 선택하는 선택자 */
       .item:last-child {
         border-bottom: 0;
       }
 
+      /* checked 가상 클래스는 요소가 checked (선택) 상태일 때 적용하는 선택자 */
+      /* + : 인접 형제 선택자 (Adjacent sibling selector) */
+      /* 구문 : E1 + E2 (E2는 선택자의 대상임) E1과 E2가 문서 구조에서 같은 부모를 가지고, E1 바로 뒤에 E2가 와야 함 */
+      /* 같은 부모를 가지고 E1 바로 뒤에 오는 E2에만 적용한다 */
       input:checked + p {
         background: #F9F9F9;
         text-decoration: line-through;
       }
 
+      /* 속성 선택자 (Attribute Selectors) */
+      /* E[attr="val"]  'attr' 속성의 값이 정확하게 'val'과 일치하는 요소 E를 선택한다 */
       input[type="checkbox"] {
         margin: 20px;
       }
