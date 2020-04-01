@@ -1,3 +1,5 @@
+<!-- Build Custom Video Player Interface-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,13 +17,20 @@
 
       <div class="player__controls">
 
+        <!-- Progress Bar -->
         <div class="progress">
           <div class="progress__filled"></div>
         </div>
 
+        <!-- Pause and Play -->
         <button class="player__button toggle" title="Toggle Play">►</button>
+
+        <!-- Input for the slider (Min, Max, Step) -->
         <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
         <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+
+        <!-- Skip Button -->
+        <!-- 데이터 속성 : dataset 객체를 통해 data 속성을 가져오기 위해서는 속성 이름의 data- 뒷 부분을 사용 (대시들은 camelCase로 변환되는 것에 주의) -->
         <button data-skip="-10" class="player__button">« 10s</button>
         <button data-skip="25" class="player__button">25s »</button>
 
@@ -34,3 +43,6 @@
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- 데이터 속성 : https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%86%8D%EC%84%B1_%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 -->
