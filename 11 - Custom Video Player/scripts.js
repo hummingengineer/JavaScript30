@@ -12,11 +12,8 @@ const ranges = player.querySelectorAll('.player__slider')
 /* Build out functions */
 function togglePlay() {
   // Pause is a property that lives on the video. There is no playing property. There is only a pause property.
-  if (video.paused) {
-    video.play()
-  } else {
-    video.pause()
-  }
+  const method = video.paused ? 'play' : 'pause'
+  video[method]()
 }
 
 /* Hook up the event listeners */
