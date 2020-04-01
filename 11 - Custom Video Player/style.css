@@ -2,6 +2,12 @@ html {
   box-sizing: border-box;
 }
 
+/* 공통 선택자 : 페이지 전체에 공통으로 사용되어야 할 element (요소)에 적용 */
+/* before : 해당 태그의 앞에 놓여진다 */
+/* after : 해당 태그의 다음 위치에 놓여진다. */
+
+/* E::before	E 요소 중 시작 지점에 생성된 요소 선택 */
+/* E::after	E 요소 중 끝 지점에 생성된 요소 선택 */
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -70,10 +76,12 @@ body {
   width: 100%;
   transform: translateY(100%) translateY(-5px);
   transition: all .3s;
+  /* flex-wrap : 나열된 요소들의 총 넓이가 부모 넓이 보다 클 때, 이 요소들을 다음 줄에 이어서 나열(정렬) 해주는 기능 */
   flex-wrap: wrap;
   background: rgba(0,0,0,0.1);
 }
 
+/* "호버링" 중인 player 클래스 선택 */
 .player:hover .player__controls {
   transform: translateY(0);
 }
@@ -101,11 +109,13 @@ body {
   width: 50%;
   background: #ffc600;
   flex: 0;
+  /* 플렉스 아이템의 초기 크기를 지정 */
   flex-basis: 50%;
 }
 
 /* unholy css to style input type="range" */
 
+/* E[attr="val"]	E 요소 중 'attr' 속성의 값이 정확하게 'val'과 일치하는 요소 선택 */
 input[type=range] {
   -webkit-appearance: none;
   background: transparent;
