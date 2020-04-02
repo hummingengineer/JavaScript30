@@ -23,6 +23,10 @@ function updateButton() {
   toggle.textContent = icon
 }
 
+function skip() {
+  console.log('Skipping')
+}
+
 /* Hook up the event listeners */
 // 비디오 화면 클릭하면, 재생과 일시정지를 할 수 있는 이벤트 등록
 video.addEventListener('click', togglePlay)
