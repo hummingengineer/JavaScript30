@@ -6,7 +6,7 @@ const video = player.querySelector('.viewer')
 const progress = player.querySelector('.progress')
 const progressBar = player.querySelector('.progress__filled')
 const toggle = player.querySelector('.toggle')
-const skipButtons = player.querySelectorAll('[data-skip]')
+const skipButtons = player.querySelectorAll('[data-skip]')  // skipButtons is equal to anything (any element) that has a "data-skip" attribute
 const ranges = player.querySelectorAll('.player__slider')
 
 /* Build out functions */
@@ -24,7 +24,8 @@ function updateButton() {
 }
 
 function skip() {
-  console.log('Skipping')
+  // this.dataset.skip is string, so we have to convert it to real number
+  video.currentTime += parseFloat(this.dataset.skip)
 }
 
 /* Hook up the event listeners */
@@ -38,3 +39,4 @@ video.addEventListener('pause', updateButton)
 // Listen to the video for whenever it is paused
 // Whatever causes it to pause, then we can just update the actual buttons
 toggle.addEventListener('click', togglePlay)
+skipButtons.forEach(button => button.addEventListener('click', skip))
