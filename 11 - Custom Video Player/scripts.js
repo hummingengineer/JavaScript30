@@ -29,7 +29,10 @@ function skip() {
 }
 
 function handleRangeUpdate() {
-  console.log(this.value)
+  // "this.name" is either going to be "volume" or "playbackRate"
+  // this.value 는 슬라이더의 값
+  // this.name 은 볼륨 슬라이더인지 아니면 비디오 속도 조절 슬라이더인지 판별
+  video[this.name] = this.value
 }
 
 /* Hook up the event listeners */
