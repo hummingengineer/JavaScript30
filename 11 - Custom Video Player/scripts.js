@@ -28,6 +28,10 @@ function skip() {
   video.currentTime += parseFloat(this.dataset.skip)
 }
 
+function handleRangeUpdate() {
+  console.log(this.value)
+}
+
 /* Hook up the event listeners */
 // 비디오 화면 클릭하면, 재생과 일시정지를 할 수 있는 이벤트 등록
 video.addEventListener('click', togglePlay)
@@ -40,3 +44,6 @@ video.addEventListener('pause', updateButton)
 // Whatever causes it to pause, then we can just update the actual buttons
 toggle.addEventListener('click', togglePlay)
 skipButtons.forEach(button => button.addEventListener('click', skip))
+
+// Listen for a change on the specific sliders
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate))
