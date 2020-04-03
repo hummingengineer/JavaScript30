@@ -46,4 +46,8 @@ toggle.addEventListener('click', togglePlay)
 skipButtons.forEach(button => button.addEventListener('click', skip))
 
 // Listen for a change on the specific sliders
+// 요소(element)의 값이 변경될 때 발생
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate))
+// Listen for a mousemove event. This will fire regardless of if you're clicking or not.
+// 마우스가 요소에서 움직일 때
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate))
