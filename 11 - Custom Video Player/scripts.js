@@ -32,7 +32,15 @@ function handleRangeUpdate() {
   // "this.name" is either going to be "volume" or "playbackRate"
   // this.value 는 슬라이더의 값
   // this.name 은 볼륨 슬라이더인지 아니면 비디오 속도 조절 슬라이더인지 판별
+  // html input tag의 속성인 name과 value 사용 방법
   video[this.name] = this.value
+}
+
+function handleProgress() {
+  // progress__filled class의 flex-basis 에 쓰기 위해 progress bar의 위치 (%)를 구한다
+  const percent = (video.currentTime / video.duration) * 100
+  // progress__filled class의 flex-basis CSS에 접근하여 값을 바꿈
+  progressBar.style.flexBasis = `${percent}%`
 }
 
 /* Hook up the event listeners */
@@ -42,6 +50,9 @@ video.addEventListener('click', togglePlay)
 video.addEventListener('play', updateButton)
 // 재생 아이콘과 일시정지 아이콘
 video.addEventListener('pause', updateButton)
+// currentTime 속성이 변경되는 시점에 발생
+// "timeupdate" will just trigger when the video is updating its timecode
+video.addEventListener('timeupdate', handleProgress)
 
 // Listen to the video for whenever it is paused
 // Whatever causes it to pause, then we can just update the actual buttons
