@@ -43,6 +43,12 @@ function handleProgress() {
   progressBar.style.flexBasis = `${percent}%`
 }
 
+function scrub(e) {
+  // progress.offsetWidth is the entire width of the bar
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration
+  video.currentTime = scrubTime
+}
+
 /* Hook up the event listeners */
 // 비디오 화면 클릭하면, 재생과 일시정지를 할 수 있는 이벤트 등록
 video.addEventListener('click', togglePlay)
@@ -65,3 +71,12 @@ ranges.forEach(range => range.addEventListener('change', handleRangeUpdate))
 // Listen for a mousemove event. This will fire regardless of if you're clicking or not.
 // 마우스가 요소에서 움직일 때
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate))
+
+// When someone mouses down, we'll set it to true
+let mousedown = false;
+progress.addEventListener('click', scrub)
+// If "mousedown" variable is true, it runs "scrub(e)"
+// If "mousedown" variable is false, it's just going to return "false" and it's not going to do anything
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e))
+progress.addEventListener('mousedown', () => mousedown = true)
+progress.addEventListener('mouseup', () => mousedown = false)
