@@ -1,3 +1,7 @@
+<!-- Someone inputs a certain sequence of keys into your window or into an inputter, something like that, then something needs to happen -->
+<!-- 특정 키 조합을 타이핑하면 정해둔 액션이 실행된다 -->
+<!-- 비밀키를 설정해두고 비밀키를 입력할경우 유니콘이 뜨게한다 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +14,22 @@
   <body>
 
     <script>
-      //
+      const pressed = []
+      const secretCode = 'wesbos'
+
+      window.addEventListener('keyup', (e)=> {
+        // e.key : the name of the key that you have pressed
+        // 우선 키를 누르면 콘솔창에 누른 키가 뜨면서 배열 pressed에 추가된다
+        // 배열의 길이를 항상 6으로 정하기 위해 splice를 사용했고, 새로 입력 시 뒤에서 부터 채워진다
+        pressed.push(e.key)
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length)
+        // 만약 w,e,s,b,o,s를 입력하면 조건문의 내용과 같이 콘솔창에 알림과 유니콘사진이 생긴다 ( cornify_add() )
+      })
     </script>
 
   </body>
 
 </html>
+
+<!-- Reference : https://jusths.tistory.com/93 -->
+<!-- https://takeuu.tistory.com/56 -->
