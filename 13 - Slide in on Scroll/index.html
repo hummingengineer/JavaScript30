@@ -1,3 +1,5 @@
+<!-- When you slide down the images, the images will sort of slide themselves in from the left or from the right, and you can do whatever other animations you like to do -->
+<!-- window events, debouncing -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +42,7 @@
     </div>
 
     <script>
-
+      // It will actually only run the function checkSlide once every 20 milliseconds
       function debounce(func, wait = 20, immediate = true) {
         var timeout
         return function() {
@@ -55,6 +57,33 @@
           if (callNow) func.apply(context, args);
         }
       }
+
+      const sliderImages = document.querySelectorAll('.slide-in')
+
+      // Run every time the person scrolls
+      // Loop over every single image and figure out where the image needs to then be shown
+      function checkSlide(e) {
+        sliderImages.forEach(sliderImage => {
+          // very bottom of our window
+          // 그냥 window.scrollY 하면 화면 상단 위쪽 스크롤을 의미. 현재 뷰포트 위쪽 모서리의 Y좌표를 반환
+          // window.scrollY (현재 스크롤 내려온 화면의 위쪽 모서리의 Y좌표) + window.innerHeight (지금 화면 크기)
+          const slideInAt = (window.scrollY + window.innerHeight) - (sliderImage.height / 2)  // half way through the image // 화면 하단이 이미지의 50% (절반)을 만났을 때 (이미지 절반 정도를 만났을 때 이미지를 띄워준다)
+          // offsetTop is going to tell us the top of this image is how far from the top of the actual window
+          // Where's the bottom of the image
+          const imageBottom = sliderImage.offsetTop + sliderImage.height  // bottom of the image
+          const isHalfShown = slideInAt > sliderImage.offsetTop
+          const isNotScrolledPast = window.scrollY < imageBottom
+          // if it is half shown on the page, and we are not scrolled past it
+          if (isHalfShown && isNotScrolledPast) {
+            sliderImage.classList.add('active')
+          } else {
+            sliderImage.classList.remove('active')
+          }
+        })
+      }
+
+      // When the window is scrolled, we are going to run the checkSlide function
+      window.addEventListener('scroll', debounce(checkSlide))
 
     </script>
 
