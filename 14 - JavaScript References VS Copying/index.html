@@ -1,6 +1,3 @@
-<!-- 객체에 변수를 저장하면, 실제 값을 저장하는 것이 아니라 객체를 메모리 어딘가에 만들고, 객체의 참조(위치 값)를 저장하게 된다 (얕은 복사) -->
-<!-- 따라서 객체(배열 포함)의 경우 = 를 이용하여 복사하면, 참조 복사만 가능하다 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +27,20 @@
       console.log(name, name2)  // wesley Wes
 
       // Let's say we have an array
-      const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+      // 객체에 변수를 저장하면, 실제 값을 저장하는 것이 아니라 객체를 메모리 어딘가에 만들고, 객체의 참조(위치 값)를 저장하게 된다 (얕은 복사)
+      // 따라서 객체(배열 포함)의 경우 = 를 이용하여 복사하면, 참조 복사만 가능하다
+      const players = ['Wes', 'Sarah', 'Ryan', 'Poppy']
 
       // and we want to make a copy of it.
+      const team = players
+      console.log(players, team)
 
       // You might think we can just do something like this:
+      // team is not the array. team is just a reference to the original array which is players.
+      // So when you edit that original array or when you update any of the arrays, the reference will be edited or updated too
+      team[3] = 'Lux'
+      console.log(team)  // ['Wes', 'Sarah', 'Ryan', 'Lux']
+      console.log(players)  // ['Wes', 'Sarah', 'Ryan', 'Lux']
 
       // however what happens when we update that array?
 
