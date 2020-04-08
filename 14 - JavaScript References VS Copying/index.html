@@ -1,3 +1,6 @@
+<!-- 객체에 변수를 저장하면, 실제 값을 저장하는 것이 아니라 객체를 메모리 어딘가에 만들고, 객체의 참조(위치 값)를 저장하게 된다 (얕은 복사) -->
+<!-- 따라서 객체(배열 포함)의 경우 = 를 이용하여 복사하면, 참조 복사만 가능하다 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +12,22 @@
   <body>
     <script>
       // start with strings, numbers and booleans
+
+      // Because the value of age goes into the variable at the same time
+      // 자바스크립트는 기본 자료형(숫자, 문자열, boolean)의 값을 복사할 때 값을 완전히 복사한다 (깊은 복사)
+      // 사용된 두 개의 변수는 완전히 독립적인 상태가 된다
+      // 값을 복사하고 변경했을 때, 다른 값에 전혀 영향을 주지 않는다
+      let age = 100
+      let age2 = age
+      console.log(age, age2)  // 100 100
+      age = 200
+      console.log(age, age2)  // 200 100
+
+      let name = 'Wes'
+      let name2 = name
+      console.log(name, name2)  // Wes Wes
+      name = 'wesley'
+      console.log(name, name2)  // wesley Wes
 
       // Let's say we have an array
       const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
@@ -57,3 +76,6 @@
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- https://wanna-b.tistory.com/18 -->
