@@ -51,6 +51,10 @@
       // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
       // So, how do we fix this? We take a copy instead!
+      const team2 = players.slice()  // This is going to return the entire array
+      team2[3] = 'Lux'
+      console.log(team2)  // ['Wes', 'Sarah', 'Ryan', 'Lux']
+      console.log(players)  // ['Wes', 'Sarah', 'Ryan', 'Poppy']
 
       // one way
 
