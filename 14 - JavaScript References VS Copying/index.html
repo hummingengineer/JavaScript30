@@ -2,7 +2,7 @@
 <!-- slice() / concat() / [...] / Array.from() -->
 
 <!-- 자바스크립트 독립적으로 객체 복사하는 방법 -->
-<!-- Object.assign() -->
+<!-- Object.assign() / {...} -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,9 +101,33 @@
       console.log(cap2)
 
       // We will hopefully soon see the object ...spread
-      
+      // This is very shallow, meaning that it will only ever go one level deep
+      const cap3 = {...person}
+      console.log(cap3)
 
       // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+      const wes = {
+        name: 'Wes',
+        age: 100,
+        social: {
+          twitter: '@wesbos',
+          facebook: 'wesbos.developer'
+        }
+      }
+      console.clear()
+
+      const dev = Object.assign({}, wes)
+      dev.social.twitter = '@coolman'
+
+      // Because when you use Object.assign(), it only does one level deep (shallow copy)
+      console.log(wes)  // wes.social = {twitter: "@coolman", facebook: "wesbos.developer"}
+      console.log(dev)  // dev.social = {twitter: "@coolman", facebook: "wesbos.developer"}
+
+      // Deep clone
+      const dev2 = JSON.parse(JSON.stringify(wes))
+      dev2.social.twitter = '@coolman'
+      console.log(wes)  // wes.social = {twitter: "@wesbos", facebook: "wesbos.developer"}
+      console.log(dev)  // dev2.social = {twitter: "@coolman", facebook: "wesbos.developer"}
 
     </script>
 
