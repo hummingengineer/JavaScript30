@@ -1,3 +1,7 @@
+<!-- LocalStorage and Event Delegation -->
+<!-- Local Storage를 사용하여 새로고침을 하더라도 페이지의 상태가 지속되도록 만든다 -->
+<!-- 이벤트 위임이란 동적으로 노드를 생성하고 삭제할 때 '각 노드에 대해 이벤트를 추가하지 않고, 상위 노드에서 하위 노드의 이벤트들을 제어하는 방식'입니다 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +31,14 @@
       const addItems = document.querySelector('.add-items')
       const itemsList = document.querySelector('.plates')
       const items = []
+
+      // Listen for the submit event (클릭 뿐만 아니라 엔터키를 이용해 제출도 가능하도록 submit 이벤트 사용)
+      addItems.addEventListener('submit', addItem)
     </script>
 
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- https://velog.io/@yesdoing/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%9C%84%EC%9E%84Event-Delegation%EC%9D%98-%EA%B5%AC%ED%98%84 -->
