@@ -38,11 +38,20 @@
         e.preventDefault()
         // "this" is the whole form tag
         // and then, we'll look inside of that form tag for something that has a name attribute of "item"
-        const text = this.querySelector('[name=item]')  // [attr=value] : attr이라는 이름의 특성값이 정확히 value인 요소를 선택합니다
+        // [attr=value] : attr이라는 이름의 특성값이 정확히 value인 요소를 선택합니다
+        // Input has a property called value which is whatever the user has typed into it
+        const text = this.querySelector('[name=item]').value
         const item = {
-          text: 'Item Name',
+          // "text: text" can be replaced by "text"
+          text,  // ES6 shorthand property
           done: false
         }
+
+        items.push(item)
+        // Clear the input
+        // "this" is the form element
+        // Form elements have a method called "reset" on it
+        this.reset()
       }
 
       // Listen for the submit event (클릭 뿐만 아니라 엔터키를 이용해 제출도 가능하도록 submit 이벤트 사용)
