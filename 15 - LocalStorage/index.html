@@ -32,6 +32,19 @@
       const itemsList = document.querySelector('.plates')
       const items = []
 
+      function addItem(e) {
+        // This is going to stop the page from reloading
+        // By default, a form is just going to reload the page or send the data to an external source
+        e.preventDefault()
+        // "this" is the whole form tag
+        // and then, we'll look inside of that form tag for something that has a name attribute of "item"
+        const text = this.querySelector('[name=item]')  // [attr=value] : attr이라는 이름의 특성값이 정확히 value인 요소를 선택합니다
+        const item = {
+          text: 'Item Name',
+          done: false
+        }
+      }
+
       // Listen for the submit event (클릭 뿐만 아니라 엔터키를 이용해 제출도 가능하도록 submit 이벤트 사용)
       addItems.addEventListener('submit', addItem)
     </script>
@@ -42,3 +55,5 @@
 
 <!-- Reference -->
 <!-- https://velog.io/@yesdoing/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%9C%84%EC%9E%84Event-Delegation%EC%9D%98-%EA%B5%AC%ED%98%84 -->
+<!-- 브라우저 -> 검사 -> Console -> Preserve log 체크 -> 새로고침 하더라도 로그가 남는다 -->
+<!-- https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors -->
