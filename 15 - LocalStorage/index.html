@@ -48,11 +48,31 @@
         }
 
         items.push(item)
+        populateList(items, itemsList)
         // Clear the input
         // "this" is the form element
         // Form elements have a method called "reset" on it
         this.reset()
       }
+
+      // plates = items
+      // Set that to be a default of an empty array
+      // The reason why we do that is because if for some reason you forget to pass in something
+      // platesList is a place to put the HTML (itmesList)
+      function populateList(plates = [], platesList) {
+        // We're going to map over it
+        // innerHTML : QuerySelector로 가져온 도큐먼트 오브젝트의 내용이나, 내부 HTML 코드를 JavaScript 코드에서 변경 할 수 있다
+        platesList.innerHTML = plates.map((plate, i) => {
+          // return some HTML
+          return `
+            <li>
+              <label for="">${plate.text}</label>
+            </li>
+          `
+        }).join('')  // ".join" on the end is going to take this array that map makes and turn it into one big string
+      }
+      // Every time we add an item, we are calling this populateList function, which is then going to create a list item with a label inside of it
+      // This populateList function, every time we add an item, it's recreating the entire list
 
       // Listen for the submit event (클릭 뿐만 아니라 엔터키를 이용해 제출도 가능하도록 submit 이벤트 사용)
       addItems.addEventListener('submit', addItem)
