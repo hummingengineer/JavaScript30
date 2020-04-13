@@ -66,7 +66,8 @@
           // return some HTML
           return `
             <li>
-              <label for="">${plate.text}</label>
+              <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+              <label for="item${i}">${plate.text}</label>
             </li>
           `
         }).join('')  // ".join" on the end is going to take this array that map makes and turn it into one big string

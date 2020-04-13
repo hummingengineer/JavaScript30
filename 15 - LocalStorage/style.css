@@ -64,14 +64,16 @@ h2 {
   display: none;
 }
 
+/* "label" before "plates input" */
 .plates input + label:before {
   /* 선택한 요소의 내용 앞이나 뒤에 콘텐트를 붙입니다 */
   content: '⬜️';
   margin-right: 10px;
 }
 
+/* When the "input" is checked, turn that content from a blank square into a taco */
 .plates input:checked + label:before {
-  content: '🌮';
+  content: '🌮';  /* "+poo" */
 }
 
 .add-items {
