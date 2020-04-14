@@ -67,7 +67,7 @@ h2 {
 /* "label" before "plates input" */
 .plates input + label:before {
   /* 선택한 요소의 내용 앞이나 뒤에 콘텐트를 붙입니다 */
-  content: '⬜️';
+  content: '⬜️';  /* blank square emoji */
   margin-right: 10px;
 }
 

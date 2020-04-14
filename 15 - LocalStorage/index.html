@@ -2,6 +2,9 @@
 <!-- Local Storage를 사용하여 새로고침을 하더라도 페이지의 상태가 지속되도록 만든다 -->
 <!-- 이벤트 위임이란 동적으로 노드를 생성하고 삭제할 때 '각 노드에 대해 이벤트를 추가하지 않고, 상위 노드에서 하위 노드의 이벤트들을 제어하는 방식'입니다 -->
 
+<!-- You can save text to the browser, and then when you reload the page you'll be able to grab this text out of it -->
+<!-- Application tab in Chrome Dev Tools -> Local Storage -> Click on the domain that you're working on (e.g. working locally (file://) ) -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +52,13 @@
 
         items.push(item)
         populateList(items, itemsList)
+
+        // Set this "items" array into local storage
+        // 'items' : key
+        // localStorage.setItem 은 값으로는 문자열, 불린, 숫자, null, undefined 등을 저장할 수 있지만, 모두 문자열로 변환됩니다. 키도 문자열로 변환됩니다.
+        // localStorage.setItem('items', items)  // error because when you try to put something other than a string into local storage, the browser goes I don't know how to handle this. Let me just convert it to a string
+        localStorage.setItem('items', JSON.stringify(items))
+
         // Clear the input
         // "this" is the form element
         // Form elements have a method called "reset" on it
