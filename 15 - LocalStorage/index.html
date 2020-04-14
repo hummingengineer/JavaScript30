@@ -33,7 +33,8 @@
     <script>
       const addItems = document.querySelector('.add-items')
       const itemsList = document.querySelector('.plates')
-      const items = []
+      // When on page load, we check if there is something in local storage
+      const items = JSON.parse(localStorage.getItem('items')) || []
 
       function addItem(e) {
         // This is going to stop the page from reloading
@@ -53,6 +54,7 @@
         items.push(item)
         populateList(items, itemsList)
 
+        // When we add an item, you put it into local storage and you update your local storage every single time
         // Set this "items" array into local storage
         // 'items' : key
         // localStorage.setItem 은 값으로는 문자열, 불린, 숫자, null, undefined 등을 저장할 수 있지만, 모두 문자열로 변환됩니다. 키도 문자열로 변환됩니다.
@@ -73,6 +75,7 @@
         // We're going to map over it
         // innerHTML : QuerySelector로 가져온 도큐먼트 오브젝트의 내용이나, 내부 HTML 코드를 JavaScript 코드에서 변경 할 수 있다
         platesList.innerHTML = plates.map((plate, i) => {
+          // data-index 는 몇번째 체크박스인지 알기 위한 인덱스이다
           // return some HTML
           return `
             <li>
@@ -85,8 +88,28 @@
       // Every time we add an item, we are calling this populateList function, which is then going to create a list item with a label inside of it
       // This populateList function, every time we add an item, it's recreating the entire list
 
+      // 체크박스의 선택유무가 페이지 새로고침을 하더라도 유지되도록
+      function toggleDone(e) {
+        // we want to check if the target matches the thing that we're looking for
+        // This is Event Delegation where we listen for a click on something higher, and then inside of it we check if it's the actual thing that we want because it could trigger on a few different things
+        if (!e.target.matches('input')) return; // skip this unless it's an input
+        // console.log(e.target) // After the if-condition, we only get <input>
+        const el = e.target
+        // console.log(el.dataset.index)  // This is going to tell you the index of the corresponding item in the array
+        const index = el.dataset.index
+        items[index].done = !items[index].done  // flip-flopping between true and false
+        localStorage.setItem('items', JSON.stringify(items))
+        // To update the actual visibility part on the page (체크박스 상태 업데이트)
+        populateList(items, itemsList)
+      }
+
       // Listen for the submit event (클릭 뿐만 아니라 엔터키를 이용해 제출도 가능하도록 submit 이벤트 사용)
       addItems.addEventListener('submit', addItem)
+      // When plates' children inputs get clicked, pass this click on to them
+      itemsList.addEventListener('click', toggleDone)
+
+      populateList(items, itemsList)
+
     </script>
 
   </body>
