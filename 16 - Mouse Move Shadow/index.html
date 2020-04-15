@@ -39,9 +39,44 @@
     </style>
 
     <script>
-      //
+      const hero = document.querySelector('.hero')
+      const text = hero.querySelector('h1')
+
+      function shadow(e) {
+        // const width = hero.offsetWidth
+        // const height = hero.offsetHeight
+        // You can write in one line
+        // 구조 분해 할당
+        const { offsetWidth: width, offsetHeight: height } = hero
+        // where the person's cursor was
+        // let x = e.offsetX
+        // let y = e.offsetY
+        let { offsetX: x, offSetY: y } = e
+
+        // Even though we're listening for the mouse move on the hero, if there are children elements inside of the hero it's going to give us the x and y of the actual element that we hovered
+        // console.log(e.target)  // The target is going to be the thing that it actually triggered on
+
+        if (this !== e.target) {
+          // x값 = text에서의 x값 + text의 왼쪽 끝 지점의 x좌표
+          x = x + e.target.offsetLeft
+          y = y + e.target.offsetTop
+        }
+
+        console.log(x, y)
+      }
+
+      hero.addEventListener('mousemove', shadow)
+
     </script>
 
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- https://medium.com/@benjaminwoojang/css-text-shadow-mouse-move-effect-2d453c138398 -->
+<!-- 그런데 여기서 문제가 하나 발생한다. mouseover event를 감지하는 요소가 두 가지로 나뉘어진다는 점이다. -->
+<!-- 하나는 우리가 명시적으로 shadow function을 걸어주었던 hero이고, 또 하나는 event delegation에 의해서 발생하는 hero 내부 요소 text이다. 둘 다 shadow function이 동작해야 하는 것은 맞지만 위 콘솔창에서 나왔듯이 마우스가 text내부로 진입할 경우 x, y값이 hero에서 발생할 때와 크게 달라진다. -->
+<!-- text에서 마우스가 이동할 때도 hero에서 이동할 때와 연속적으로 이어지는 x, y값을 유지해야 한다. -->
+<!-- 따라서 this !== e.target일 때 즉, hero와 이벤트가 발생한 요소가 같지 않을 때(text)일 때 text의 위치만큼을 더해주어 hero에서의 x, y값과 이어지게 처리해준다. -->
+<!-- x값 = text에서의 x값 + text의 왼쪽 끝 지점의 x좌표 -->
