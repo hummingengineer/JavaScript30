@@ -62,7 +62,7 @@
           y = y + e.target.offsetTop
         }
 
-        console.log(x, y)
+        const xWalk = Math.round((x / width * walk) - (walk / 2));
       }
 
       hero.addEventListener('mousemove', shadow)
