@@ -41,7 +41,7 @@
     <script>
       const hero = document.querySelector('.hero')
       const text = hero.querySelector('h1')
-      const walk = 100 // 100px
+      const walk = 500 // 500px
 
       function shadow(e) {
         // const width = hero.offsetWidth
@@ -52,7 +52,7 @@
         // where the person's cursor was
         // let x = e.offsetX
         // let y = e.offsetY
-        let { offsetX: x, offSetY: y } = e  // offsetX and offsetY to get the position where your cursor is.
+        let { offsetX: x, offsetY: y } = e  // offsetX and offsetY to get the position where your cursor is.
 
         // Even though we're listening for the mouse move on the hero, if there are children elements inside of the hero it's going to give us the x and y of the actual element that we hovered
         // console.log(e.target)  // The target is going to be the thing that it actually triggered on
