@@ -41,6 +41,7 @@
     <script>
       const hero = document.querySelector('.hero')
       const text = hero.querySelector('h1')
+      const walk = 100 // 100px
 
       function shadow(e) {
         // const width = hero.offsetWidth
@@ -51,19 +52,31 @@
         // where the person's cursor was
         // let x = e.offsetX
         // let y = e.offsetY
-        let { offsetX: x, offSetY: y } = e
+        let { offsetX: x, offSetY: y } = e  // offsetX and offsetY to get the position where your cursor is.
 
         // Even though we're listening for the mouse move on the hero, if there are children elements inside of the hero it's going to give us the x and y of the actual element that we hovered
         // console.log(e.target)  // The target is going to be the thing that it actually triggered on
 
+        // If you have nested elements inside of that thing, you sometimes will need to do a little bit of math to deal with it
         if (this !== e.target) {
           // x값 = text에서의 x값 + text의 왼쪽 끝 지점의 x좌표
           x = x + e.target.offsetLeft
           y = y + e.target.offsetTop
         }
 
-        const xWalk = Math.round((x / width * walk) - (walk / 2));
-        const yWalk = Math.round((y / height * walk) - (walk / 2));
+        // Figure out how far the text shadow should actually go
+        // How many pixels should it be stretched
+        // 상단 좌측 -50, -50
+        // 하단 우측 +50, +50 나오게 된다
+        const xWalk = Math.round((x / width * walk) - (walk / 2))
+        const yWalk = Math.round((y / height * walk) - (walk / 2))
+
+        text.style.textShadow = `
+          ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
+          ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,255,0.7),
+          ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,0,0.7),
+          ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.7)
+        `
       }
 
       hero.addEventListener('mousemove', shadow)
