@@ -1,4 +1,5 @@
 <!-- Sorting Band Names without articles -->
+<!-- 배열의 내용에서 부사를 제거한 뒤 알파벳 순으로 재배열 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +55,26 @@
 
     <script>
       const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog']
+
+      // 부사를 제거할 수 있는 함수 생성
+      function strip(bandName) {
+        //
+      }
+
+      // "Which one is bigger? a or b"
+      // Then the bigger one you move to the top and the other one you move to the bottom
+      // Or the one that comes earlier in the alphabet you move to the top
+      const sortedBands = bands.sort(function (a, b) {
+        if (a > b) return 1
+        else return -1
+      })
+
+      console.log(sortedBands)
     </script>
 
   </body>
   
 </html>
+
+<!-- Reference -->
+<!-- https://takeuu.tistory.com/61 -->
