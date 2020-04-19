@@ -58,7 +58,10 @@
 
       // 부사를 제거할 수 있는 함수 생성
       function strip(bandName) {
-        //
+        // A, The, An 제거
+        // e.g. strip('An old dog') => "old dog"
+        // e.g. strip('Anold dog') => "Anold dog"
+        return bandName.replace(/^(a |the |an )/i, '').trim()
       }
 
       // "Which one is bigger? a or b"
