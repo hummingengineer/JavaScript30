@@ -61,14 +61,14 @@
         // A, The, An 제거
         // e.g. strip('An old dog') => "old dog"
         // e.g. strip('Anold dog') => "Anold dog"
-        return bandName.replace(/^(a |the |an )/i, '').trim()
+        return bandName.replace(/^(a |the |an )/i, '').trim()  // Trim to delete spaces
       }
 
       // "Which one is bigger? a or b"
       // Then the bigger one you move to the top and the other one you move to the bottom
       // Or the one that comes earlier in the alphabet you move to the top
       const sortedBands = bands.sort(function (a, b) {
-        if (a > b) return 1
+        if (strip(a) > strip(b)) return 1
         else return -1
       })
 
