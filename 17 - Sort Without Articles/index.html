@@ -67,10 +67,7 @@
       // "Which one is bigger? a or b"
       // Then the bigger one you move to the top and the other one you move to the bottom
       // Or the one that comes earlier in the alphabet you move to the top
-      const sortedBands = bands.sort(function (a, b) {
-        if (strip(a) > strip(b)) return 1
-        else return -1
-      })
+      const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1)
 
       console.log(sortedBands)
     </script>
