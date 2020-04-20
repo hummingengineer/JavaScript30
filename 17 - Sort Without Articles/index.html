@@ -69,6 +69,12 @@
       // Or the one that comes earlier in the alphabet you move to the top
       const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1)
 
+      // grab "bands" id
+      document.querySelector('#bands').innerHTML =
+        sortedBands
+          .map(band => `<li>${band}</li>`)  // Map over each of those, and then that's going to return an array, so we want to join it
+          .join('')  // join() 해주지 않으면 ',' 가 붙어서 출력된다. DOM에서 toString을 하기 때문.
+
       console.log(sortedBands)
     </script>
 
