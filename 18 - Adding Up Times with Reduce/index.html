@@ -189,8 +189,12 @@
     </ul>
 
     <script>
+      // We want to turn "timeNodes" from a nodeList into an array of actual time strings
       const timeNodes = Array.from(document.querySelectorAll('[data-time]'))
-      console.log(timeNodes)  // We want to turn this from a nodeList into an array of actual time strings
+
+      const seconds = timeNodes
+        .map(node => node.dataset.time)  // An array of all of the times
+        .map()  // Turn it into just seconds
     </script>
 
   </body>
