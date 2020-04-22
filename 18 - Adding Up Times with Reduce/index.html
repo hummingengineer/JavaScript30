@@ -195,7 +195,9 @@
       const seconds = timeNodes
         .map(node => node.dataset.time)  // An array of all of the times
         .map(timeCode => {
-          const [mins, secs] = timeCode.split(':')  // Turn it into just seconds (string)
+          const [mins, secs] = timeCode.split(':').map(function(str) {  // Turn it into just seconds (Float)
+            return parseFloat(str)
+          })
           return (mins * 60) + secs
         })
     </script>
