@@ -199,6 +199,11 @@
           const [mins, secs] = timeCode.split(':').map(parseFloat)  // You can just pass at the function directly and it will call that function against every item in that array
           return (mins * 60) + secs;
         })
+        // map takes in an array, and exports an array, but
+        // a reduce will take in an array and return anything you want. It could be a number, it could be a string, it could be an object.
+        // In our case, we are going to take all of these numbers and reduce them down into one big number
+        // We've got the total number of seconds for every single video added together.
+        .reduce((total, vidSeconds) => total + vidSeconds)
     </script>
 
   </body>
