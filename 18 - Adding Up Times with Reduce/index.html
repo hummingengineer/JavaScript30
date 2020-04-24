@@ -204,6 +204,12 @@
         // In our case, we are going to take all of these numbers and reduce them down into one big number
         // We've got the total number of seconds for every single video added together.
         .reduce((total, vidSeconds) => total + vidSeconds)
+
+        // Chop "seconds" variable down into hours, minutes, and seconds
+        let secondsLeft = seconds
+        const hours = Math.floor(secondsLeft / 3600)
+        secondsLeft = secondsLeft % 3600  // minutes are 60 based
+        console.log(secondsLeft)
     </script>
 
   </body>
