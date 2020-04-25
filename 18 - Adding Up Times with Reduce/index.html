@@ -1,4 +1,5 @@
 <!-- Add up the total number of minutes, and seconds, and hours that is my actual videos -->
+<!-- 동영상 재생 시간을 Reduce를 사용하여 다 더하여 시, 분, 초로 나타내기 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -196,7 +197,7 @@
         .map(node => node.dataset.time)  // An array of all of the times
         .map(timeCode => {
           // Turn it into just seconds (Float)
-          const [mins, secs] = timeCode.split(':').map(parseFloat)  // You can just pass at the function directly and it will call that function against every item in that array
+          const [mins, secs] = timeCode.split(':').map(parseFloat)  // ★ You can just pass at the function directly and it will call that function against every item in that array
           return (mins * 60) + secs;
         })
         // map takes in an array, and exports an array, but
@@ -209,9 +210,17 @@
         let secondsLeft = seconds
         const hours = Math.floor(secondsLeft / 3600)
         secondsLeft = secondsLeft % 3600  // minutes are 60 based
-        console.log(secondsLeft)
+
+        const mins = Math.floor(secondsLeft / 60)
+        secondsLeft = secondsLeft % 60
+
+        console.log(hours, mins, secondsLeft)
+
     </script>
 
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- https://firstblog912.tistory.com/57 -->
