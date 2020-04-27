@@ -20,6 +20,21 @@
       const recognition = new SpeechRecognition()
       // We can see what we're saying as we are speaking
       recognition.interimResults = true
+
+      // When you stop speaking, it creates a new paragraph
+      let p = document.createElement('p')
+      const words = document.querySelector('.words')
+      // 자바스크립트를 이용하여 문서에 HTML 요소를 추가할 수 있다
+      // .appendChild()는 선택한 요소 안에 자식 요소를 추가한다
+      words.appendChild(p)
+
+      recognition.addEventListener('results', e => {
+        // When you speak into the microphone, you should be seeing some speech recognition events pop up into your console
+        console.log(e)
+        console.log(e.results)
+      })
+
+      recognition.start()
     </script>
 
     <style>
@@ -69,3 +84,4 @@
 
 <!-- Reference -->
 <!-- content 속성 : https://aboooks.tistory.com/253 -->
+<!-- appendChild() : https://www.codingfactory.net/10436 -->
