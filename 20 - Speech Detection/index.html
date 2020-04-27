@@ -12,7 +12,14 @@
     <div class="words" contenteditable></div>
 
     <script>
+      // Speech Recognition is a global variable that lives in the browser and that lives on top of the window
+      // In Chrome, it lives at webkitSpeechRecognition
       window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      // Create a new instance of speech recognition
+      const recognition = new SpeechRecognition()
+      // We can see what we're saying as we are speaking
+      recognition.interimResults = true
     </script>
 
     <style>
