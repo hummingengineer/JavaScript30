@@ -30,10 +30,20 @@
 
       recognition.addEventListener('results', e => {
         // When you speak into the microphone, you should be seeing some speech recognition events pop up into your console
-        console.log(e)
-        console.log(e.results)
+        // console.log(e)
+        // console.log(e.results)
+
+        const transcript = Array.from(e.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('')
+
+        console.log(transcript)
       })
 
+      // end 이벤트 리스너를 등록해주어야 말을 멈춘 다음에 다시 말을 시작하면, 다음 문단 생성으로 넘어갈 수 있게 된다
+      // When it ends, run the function for us recognition.start
+      recognition.addEventListener('end', recognition.start)
       recognition.start()
     </script>
 
