@@ -38,6 +38,15 @@
           .map(result => result.transcript)
           .join('')
 
+        // Create a paragraph tag where we can put these paragraphs
+        // Now when you start talking, you can see it in the DOM, but when I start talking again, it overwrites it
+        p.textContent = transcript
+        // So, if the result is final, then we need to create a new paragraph
+        if (e.results[0].isFinal) {
+          p = document.createElement('p')
+          words.appendChild(p)
+        }
+
         console.log(transcript)
       })
 
