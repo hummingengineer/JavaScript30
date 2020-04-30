@@ -47,6 +47,15 @@
           words.appendChild(p)
         }
 
+        // If you say the word 'unicorn', it triggers it
+        if (transcript.includes('unicorn')) {
+          console.log('🦄')
+        }
+        // 음성인식 기계에 사용할 수 있다
+        if (transcript.includes('get the weather')) {
+          console.log('Run Weather API function')
+        }
+
         console.log(transcript)
       })
 
