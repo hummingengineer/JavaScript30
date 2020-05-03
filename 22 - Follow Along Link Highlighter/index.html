@@ -38,7 +38,12 @@
       document.body.append(highlight)
 
       function highlightLink() {
-        console.log(this)
+        // We need to figure out how big is the element that we hovered
+        // And where on the page is that actual element
+        // "this" is going to be equal to the thing that was triggered, which is going to be each of the links
+        // If you hover over this, we can get the client rect (bottom, height, left...)
+        const linkCoords = this.getBoundingClientRect()
+        console.log(linkCoords)
       }
 
       // We'll listen for the mouse enter event on each of our triggers
