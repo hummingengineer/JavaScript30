@@ -1,3 +1,5 @@
+<!-- Stripe Navigation -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +29,20 @@
     </div>
 
     <script>
-      //
+      // Things that will be hovered, that need a background behind it
+      // When you highlight over something, it will figure out the width, the height, and where on the page that actual item is
+      const triggers = document.querySelectorAll('a')
+      const highlight = document.createElement('span')
+      // Add a class of highlight, and then put it into the DOM
+      highlight.classList.add('highlight')
+      document.body.append(highlight)
+
+      function highlightLink() {
+        console.log(this)
+      }
+
+      // We'll listen for the mouse enter event on each of our triggers
+      triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
     </script>
 
   </body>
