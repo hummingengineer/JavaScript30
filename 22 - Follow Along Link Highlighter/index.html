@@ -1,5 +1,3 @@
-<!-- Stripe Navigation -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,9 +42,19 @@
         // If you hover over this, we can get the client rect (bottom, height, left...)
         const linkCoords = this.getBoundingClientRect()
         console.log(linkCoords)
-        highlight.style.width = `${linkCoords.width}px`
-        highlight.style.height = `${linkCoords.height}px`
-        highlight.style.transform = `translate(${linkCoords.left}px, ${linkCoords.top}px)`;
+
+        // Window.scrollY is how far we actually are
+        const coords = {
+          width: linkCoords.width,
+          height: linkCoords.height,
+          top: linkCoords.top + window.scrollY,
+          left: linkCoords.left + window.scrollX
+        }
+
+        // Apply it to the inline style
+        highlight.style.width = `${coords.width}px`
+        highlight.style.height = `${coords.height}px`
+        highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`
       }
 
       // We'll listen for the mouse enter event on each of our triggers
@@ -56,3 +64,6 @@
   </body>
 
 </html>
+
+<!-- Reference -->
+<!-- Stripe Navigation (dropdown) in the future course -->
