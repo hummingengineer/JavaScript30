@@ -15,15 +15,18 @@
 
       <h1>The Voiceinator 5000</h1>
 
+      <!-- Select which is going to contain a list of all of our possible voices -->
       <select name="voice" id="voices">
         <option value="">Select A Voice</option>
       </select>
 
+      <!-- An input with the name of rate which is going to change how fast the person talks -->
       <label for="rate">Rate:</label>
       <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
 
       <label for="pitch">Pitch:</label>
       <input name="pitch" type="range" min="0" max="2" step="0.1">
+      <!-- Text area with the name of text which is going to contain whatever the person says -->
       <textarea name="text">Hello! I love JavaScript 👍</textarea>
       <button id="stop">Stop!</button>
       <button id="speak">Speak</button>
@@ -40,6 +43,16 @@
     const speakButton = document.querySelector('#speak')
     const stopButton = document.querySelector('#stop')
 
+    msg.text = document.querySelector('[name="text"]').value
+
+    function populateVoices() {
+      voices = this.getVoices()
+      voicesDropdown.innerHTML = voices
+        .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+        .join('')
+    }
+
+    speechSynthesis.addEventListener('voiceschanged', populateVoices)
   </script>
 
 </html>
