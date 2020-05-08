@@ -51,8 +51,13 @@
         .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
         .join('')
     }
+    
+    function setVoice() {
+      console.log('Changing voice')
+    }
 
     speechSynthesis.addEventListener('voiceschanged', populateVoices)
+    voicesDropdown.addEventListener('change', setVoice)
   </script>
 
 </html>
