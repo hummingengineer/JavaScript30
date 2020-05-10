@@ -64,8 +64,24 @@
       if (startOver) speechSynthesis.speak(msg)
     }
 
+    function setOption() {
+      // this.name to what changed
+      msg[this.name] = this.value
+      toggle()
+    }
+
     speechSynthesis.addEventListener('voiceschanged', populateVoices)
     voicesDropdown.addEventListener('change', setVoice)
+    options.forEach(option => option.addEventListener('change', setOption))
+    speakButton.addEventListener('click', toggle)
+    // stopButton.addEventListener('click' toggle(false))  // This is just going to run on page load
+    
+    // What bind does is you take a function and then you call it in the context of "null" and pass it an argument, a false
+    // stopButton.addEventListener('click', toggle.bind(null, false))
+
+    // You can just do an inline function
+    // This is creating another function
+    stopButton.addEventListener('click', () => toggle(false))
   </script>
 
 </html>
