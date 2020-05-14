@@ -1,10 +1,15 @@
+<!-- fixNav에 스크롤을 nav바의 높이 이상으로 내리면 fixed-nav 클래스를 추가해 nav의 상단에 패딩을 줘서 스크롤을 내려도 상단에 nav바가 고정되도록 함. -->
+<!-- 그 이하만큼 스크롤한다면 fixed-nav 클래스를 삭제하고 패딩을 0으로 줌 -->
+<!-- 스크롤을할 때 fixNav 함수를 실행 -->
+<!-- offset() - 문서에서 요소의 상대적인 위치를 알아낼 때 사용, 보통 nav바를 만들 때 사용 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta charset="UTF-8">
     <title>Sticky Nav</title>
-    <link rel="stylesheet" href="style-START.css">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -55,7 +60,26 @@
     </div>
 
     <script>
-      //
+      const nav = document.querySelector('#main');
+      const topOfNav = nav.offsetTop;
+
+      // 처음에는 style= padding-top: 0px이었다가
+      // 스크롤이 내려가면서 nav가 고정되면 class="fixed-nav" style="padding-top: 64px"이 된다
+      function fixNav() {
+        if (window.scrollY >= topOfNav) {
+          // nav.offsetHeight is going to give us however large this nav is
+          // Some people just hardcode 64px, but don't do that because then what happens if your nav changes or your font changes or anything else and then you're going to be off just a couple pixels
+          // So programmatically grab the height of the pixels and then add on px to the top
+          document.body.style.paddingTop = nav.offsetHeight + 'px';
+          document.body.classList.add('fixed-nav');
+        } else {
+          document.body.style.paddingTop = 0;
+          document.body.classList.remove('fixed-nav');
+        }
+      }
+
+      // fixNav which is going to run every single page scroll
+      window.addEventListener('scroll', fixNav);
     </script>
 
   </body>
