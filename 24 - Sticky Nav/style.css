@@ -25,6 +25,13 @@ body {
   transition: transform 0.5s;
 }
 
+/* When the body has a class of fixed-nav, this site-wrap is going to ... */
+/* transform의 scale로 요소를 확대 또는 축소 */
+/* 평면에서의 확대 또는 축소 */
+body.fixed-nav .site-wrap {
+  transform: scale(1);
+}
+
 header {
   text-align: center;
   height: 50vh;
@@ -80,6 +87,11 @@ li.logo {
   transition: all .5s;
   font-weight: 600;
   font-size: 30px;
+}
+
+/* When the body has a class of fixed-nav, the li with a class of logo is going to have a max-width of something bigger than it will ever be */
+.fixed-nav li.logo {
+  max-width: 500px;
 }
 
 li.logo a {
