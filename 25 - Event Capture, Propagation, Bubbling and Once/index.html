@@ -1,3 +1,10 @@
+<!-- 이벤트 버블링은 특정 화면 요소에서 이벤트가 발생했을 때 해당 이벤트가 더 상위의 화면 요소들로 전달되어 가는 특성을 의미 -->
+<!-- 하위에서 상위 요소로의 이벤트 전파 방식을 이벤트 버블링(Event Bubbling)이라고 한다 -->
+
+<!-- 이벤트 캡쳐는 이벤트 버블링과 반대 방향으로 진행되는 이벤트 전파 방식 -->
+<!-- 특정 이벤트가 발생했을 때 최상위 요소인 body 태그에서 해당 태그를 찾아 내려간다 -->
+<!-- addEventListener에서 capture:true를 설정해주면 해당 이벤트를 감지하기 위해 이벤트 버블링과 반대 방향으로 탐색 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +50,20 @@
 
     <button></button>
 
-    <script></script>
+    <script>
+      const divs = document.querySelectorAll('div')
+
+      function logText(e) {
+        console.log(this.classList.value) // three two one 출력 됨
+      }
+
+      document.body.addEventListener('click', logText)
+
+      divs.forEach(div => div.addEventListener('click', logText, {
+        capture: false,
+        once: true
+      }))
+    </script>
 
   </body>
 
