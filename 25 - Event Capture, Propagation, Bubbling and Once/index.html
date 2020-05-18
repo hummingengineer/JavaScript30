@@ -52,17 +52,30 @@
 
     <script>
       const divs = document.querySelectorAll('div')
+      const button = document.querySelector('button')
 
       function logText(e) {
         console.log(this.classList.value) // three two one 출력 됨
+        // e.stopPropagation() // stop bubbling this event up
+        // console.log(this)
       }
 
       document.body.addEventListener('click', logText)
 
       divs.forEach(div => div.addEventListener('click', logText, {
         capture: false,
-        once: true
+        once: true // This will listen for a click event and then unbind itself
       }))
+
+      // unbinding itself is the same thing as saying
+      // div.removeEventListener('click', logText);
+
+      // unbind it and stop them from clicking it multiple times
+      button.addEventListener('click', () => {
+        console.log('Click!!!')
+      }, {
+        once: true
+      })
     </script>
 
   </body>
