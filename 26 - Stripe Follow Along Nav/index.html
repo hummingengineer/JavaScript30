@@ -10,11 +10,18 @@
     <h2>Cool</h2>
 
     <nav class="top">
+      <!-- Dropdown background -->
+      <!-- This is not three separate divs, this is just one and it's going to follow along with the content as we go -->
       <div class="dropdownBackground">
+        <!-- arrow class is little notch part -->
         <span class="arrow"></span>
       </div>
 
       <ul class="cool">
+        <!-- The important thing is that these top level <li>s, they will be our triggers -->
+        <!-- They are the things that are going to be hovered on them -->
+        <!-- The reason why these <li>s are going to be the things that we hover is because if you hover onto this <a></a> link and then you try to hover into something inside of it like Twitter, Facebook or Blog, you're technically hovering off the anchor link and then it would trigger the off and it would fade itself out -->
+        <!-- What we've doing is even though your mouse is still inside of this parent <li>, then we've got the second one as well as the third one -->
         <li>
           <a href="#">About Me</a>
           <div class="dropdown dropdown1">
