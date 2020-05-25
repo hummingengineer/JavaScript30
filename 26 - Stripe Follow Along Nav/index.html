@@ -155,10 +155,12 @@
         display: none;
       }
 
+      /* This is how animations or transitions work */
+      /* They just apply two seperate classes when something enters or leaves and then you can use your CSS just to do that sort of staged move there */
       .trigger-enter .dropdown {
         display: block;
       }
-
+      /* opacity: 1을 하면 해당 요소가 보여지게 된다 (화면에 나타난다) */
       .trigger-enter-active .dropdown {
         opacity: 1;
       }
@@ -233,20 +235,30 @@
     </style>
 
     <script>
+      // This is going to be all the direct descendants of that cool that are our list item
       const triggers = document.querySelectorAll('.cool > li');
+      // Dropdown background is white div
       const background  = document.querySelector('.dropdownBackground');
       const nav  = document.querySelector('.top');
 
+      // Listen for a hover in (mouse enter)
       function handleEnter() {
         console.log('ENTER!!')
-        this.classList.add('trigger-enter')
-        setTimeout(() => {
-          console.log(this)
-          this.classList.add('trigger-enter-active')
-        }, 150)
+        this.classList.add('trigger-enter') // "this" is the list item
+        setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+        background.classList.add('open');
+
+        // Looking for a dropdown
+        const dropdown = this.querySelector('.dropdown');
+        // ClientRect gives you information relative to where on the page it is
+        const dropdownCoords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
       }
 
+      // Listen for a hover out (mouse leave)
       function handleLeave() {
+        // Remove the class of trigger-enter
+        // After removing them, you can see these things are fading in
         this.classList.remove('trigger-enter', 'trigger-enter-active');
         background.classList.remove('open');
       }
