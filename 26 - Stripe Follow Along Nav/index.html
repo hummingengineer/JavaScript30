@@ -252,7 +252,24 @@
         const dropdown = this.querySelector('.dropdown');
         // ClientRect gives you information relative to where on the page it is
         const dropdownCoords = dropdown.getBoundingClientRect();
+        // You can get information about where on the page from the bottom, the left, the top, the right and the width is that actual item
+        console.log(dropdownCoords);
         const navCoords = nav.getBoundingClientRect();
+
+        const coords = {
+          height: dropdownCoords.height,
+          width: dropdownCoords.width,
+          top: dropdownCoords.top - navCoords.top,
+          left: dropdownCoords.left - navCoords.left
+        };
+
+        // When you hover menu, it will know how big and how wide that actual element is
+        // This is another reason why we do that sort of two stage adding trigger-enter and trigger-enter-active so that when you enter it, even though it's not shown on the page, it's display bock and we're able to get these bounding client rects from it
+        // Because otherwise if it was hidden, you can't tell the width and the height of a hidden element, so it needs to be on the page even if it's visibly not there with opacity
+        // Set the style
+        background.style.setProperty('width', `${coords.width}px`);
+        background.style.setProperty('height', `${coords.height}px`);
+        background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
       }
 
       // Listen for a hover out (mouse leave)
