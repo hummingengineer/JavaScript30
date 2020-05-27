@@ -244,8 +244,9 @@
       // Listen for a hover in (mouse enter)
       function handleEnter() {
         console.log('ENTER!!')
-        this.classList.add('trigger-enter') // "this" is the list item
-        setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+        this.classList.add('trigger-enter'); // "this" is the list item
+        // A && B : If A is true, then B will run
+        setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
         background.classList.add('open');
 
         // Looking for a dropdown
@@ -280,8 +281,8 @@
         background.classList.remove('open');
       }
 
-      triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
-      triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave))
+      triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+      triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
     </script>
 
   </body>
