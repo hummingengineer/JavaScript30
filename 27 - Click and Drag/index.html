@@ -37,7 +37,27 @@
     </div>
 
     <script>
-      //
+      // Grab the sliders
+      // ".items" is the white div that surrounds everything
+      const slider = document.querySelector('.items');
+      // This is flag variable, depending on if you're clicking or if you're not
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener('mousedown', () => {
+        isDown = true;
+      });
+      // If you're dragging, and then you leave the thing and come back
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+      slider.addEventListener('mousemove', () => {
+        if (!isDown) return;  // stop the fn from running
+      });
     </script>
 
   </body>
