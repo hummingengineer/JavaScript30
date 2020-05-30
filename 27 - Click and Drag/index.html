@@ -42,21 +42,44 @@
       const slider = document.querySelector('.items');
       // This is flag variable, depending on if you're clicking or if you're not
       let isDown = false;
+      // When someone clicks down, before they start moving to the left or to the right, we need to record where they did that initial click down
       let startX;
       let scrollLeft;
 
-      slider.addEventListener('mousedown', () => {
+      // 포인팅 장치 버튼이 엘리먼트 위에서 눌렸을 때
+      slider.addEventListener('mousedown', (e) => {
         isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
       });
+
+      // 포인팅 장치가 리스너가 등록된 엘리먼트 밖으로 이동했을 때
       // If you're dragging, and then you leave the thing and come back
       slider.addEventListener('mouseleave', () => {
         isDown = false;
+        slider.classList.remove('active');
       });
+
+      // 포인팅 장치 버튼이 엘리먼트 위에서 놓였을 때
       slider.addEventListener('mouseup', () => {
         isDown = false;
+        slider.classList.remove('active');
       });
-      slider.addEventListener('mousemove', () => {
+
+      // 포인팅 장치가 엘리먼트 위에서 이동했을 때(마우스가 이동하는동안 계속 실행됨)
+      slider.addEventListener('mousemove', (e) => {
         if (!isDown) return;  // stop the fn from running
+        e.preventDefault();
+
+        // Figure out where the cursor is when you move it to the left and to the right
+        // Recalculate every single time that we move the mouse
+        const x = e.pageX - slider.offsetLeft;
+        // A little tip here, if you want to know what those variables are, just throw them in an object and you'll see the values
+        console.log({x, startX});
+        // This is going to tell us how far have we deviated from that initial space(point)
+        const walk = x - startX;
+        console.log(walk);
       });
     </script>
 
