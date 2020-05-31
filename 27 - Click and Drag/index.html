@@ -78,8 +78,11 @@
         // A little tip here, if you want to know what those variables are, just throw them in an object and you'll see the values
         console.log({x, startX});
         // This is going to tell us how far have we deviated from that initial space(point)
-        const walk = x - startX;
+        const walk = (x - startX) * 3; // For every pixel moved, you're gonna scroll the slider three pixels
         console.log(walk);
+
+        // Change the div by scrolling
+        slider.scrollLeft = scrollLeft - walk;
       });
     </script>
 
