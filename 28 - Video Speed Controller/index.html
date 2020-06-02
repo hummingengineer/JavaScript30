@@ -11,13 +11,17 @@
 
     <div class="wrapper">
       <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+      <!-- The entire white bar -->
       <div class="speed">
+        <!-- The field which is sort of blue gradient bar -->
         <div class="speed-bar">1×</div>
       </div>
     </div>
 
     <script>
-      //
+      const speed = document.querySelector('.speed');
+      const bar = speed.querySelector('.speed-bar');
+      const video = document.querySelector('.flex');
     </script>
 
   </body>
