@@ -13,7 +13,7 @@
       <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
       <!-- The entire white bar -->
       <div class="speed">
-        <!-- The field which is sort of blue gradient bar -->
+        <!-- The field which is sort of blue gradient -->
         <div class="speed-bar">1×</div>
       </div>
     </div>
@@ -22,6 +22,20 @@
       const speed = document.querySelector('.speed');
       const bar = speed.querySelector('.speed-bar');
       const video = document.querySelector('.flex');
+
+      // Take our speed and add the event listener of mouse move
+      speed.addEventListener('mousemove', function(e) {
+        // Because you can't assume that this bar is going to be at the top of it
+        // There might be padding, or merging or anything or another element in-between it
+        const y = e.pageY - this.offsetTop;
+        const percent = y / this.offsetHeight;
+        const min = 0.4;
+        const max = 4;
+        const height = Math.round(percent * 100) + '%';
+        bar.style.height = height;
+
+        console.log(percent);
+      })
     </script>
 
   </body>
