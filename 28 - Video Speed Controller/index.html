@@ -24,7 +24,7 @@
       const video = document.querySelector('.flex');
 
       // Take our speed and add the event listener of mouse move
-      speed.addEventListener('mousemove', function(e) {
+      function handleMove(e) {
         // Because you can't assume that this bar is going to be at the top of it
         // There might be padding, or merging or anything or another element in-between it
         const y = e.pageY - this.offsetTop;
@@ -34,8 +34,20 @@
         const height = Math.round(percent * 100) + '%';
         bar.style.height = height;
 
+        // At a 0% height, it should be 0.4x
+        // At a 100% height, it should be 4x
+        const playbackRate = percent * (max - min) + min; // This is sort of how you can offset your height
+        // Update the number inside of speed-bar
+        // Two decimal places
+        bar.textContent = playbackRate.toFixed(2) + 'x';
+        // playbackRate : 비디오의 속도를 조절할 수 있게 해주는 메소드
+        video.playbackRate = playbackRate;
+
+        console.log(playbackRate);
         console.log(percent);
-      })
+      }
+
+      speed.addEventListener('mousemove', handleMove);
     </script>
 
   </body>
