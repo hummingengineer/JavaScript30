@@ -5,6 +5,9 @@ html {
   background: linear-gradient(45deg,  #42a5f5 0%,#478ed1 50%,#0d47a1 100%);
 }
 
+/* 전체 선택자(Universal Selector)는 모든 HTML 요소를 선택합니다. 별표(*)로 나타냅니다. */
+/* :before : 해당 태그의 앞에 놓여진다 */
+/* :after : 해당 태그의 다음 위치에 놓여진다. */
 *, *:before, *:after {
   box-sizing: inherit;
 }
