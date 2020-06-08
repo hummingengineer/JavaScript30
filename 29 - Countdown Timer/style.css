@@ -29,6 +29,7 @@ body {
 .timer {
   display: flex;
   min-height: 100vh;
+  /* 플렉스 컨테이너 내의 아이템을 배치할 때 사용할 주축 및 방향(정방향, 역방향)을 지정 */
   flex-direction: column;
 }
 
@@ -57,6 +58,7 @@ body {
   cursor: pointer;
   color: white;
   font-size: 2rem;
+  /* 대문자로 또는 소문자로 바꾸는 속성 */
   text-transform: uppercase;
   background: rgba(0,0,0,0.1);
   border-bottom: 3px solid rgba(0,0,0,0.2);
