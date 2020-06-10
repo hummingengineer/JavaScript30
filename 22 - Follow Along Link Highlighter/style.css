@@ -22,10 +22,12 @@ body {
   max-width: 500px;
   font-size: 20px;
   line-height: 2;
+  /* 원래 있던 위치를 기준으로 좌표를 지정 */
   position: relative;
 }
 
 a {
+  /* 글씨의 장식(선) 색을 지정 */
   text-decoration: none;
   color: black;
   background: rgba(0,0,0,0.05);
@@ -39,6 +41,7 @@ a {
   top: 0;
   background: white;
   left: 0;
+  /* 요소의 수직 위치 정하는 속성 */
   z-index: -1;
   border-radius: 20px;
   display: block;
@@ -48,6 +51,7 @@ a {
 .menu {
   padding: 0;
   display: flex;
+  /* HTML 태그 중 ol, ul, li 요소에 스타일을 줄 수 있는 속성 */
   list-style: none;
   justify-content: center;
   margin:100px 0;
