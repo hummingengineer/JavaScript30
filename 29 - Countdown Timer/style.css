@@ -77,8 +77,11 @@ body {
 .display {
   flex: 1;
   display: flex;
+  /* 플렉스 요소는 수직 방향으로 위쪽에서 아래쪽으로 배치 */
   flex-direction: column;
+  /* 플렉스 요소는 플렉스 컨테이너의 가운데에 배치 */
   align-items: center;
+  /* 요소는 플렉스 컨테이너의 가운데에서부터 배치 */
   justify-content: center;
 }
 
