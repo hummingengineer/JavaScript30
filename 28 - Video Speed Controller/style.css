@@ -25,8 +25,10 @@ video {
   background: #efefef;
   flex: 1;
   display: flex;
+  /* 기본 설정으로, 플렉스 요소는 플렉스 컨테이너의 앞쪽에서부터 배치 */
   align-items: flex-start;
   margin: 10px;
+  /* 요소의 바깥 테두리 경계의 모서리를 둥글게 만듬 */
   border-radius: 50px;
   box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -35,6 +37,7 @@ video {
 .speed-bar {
   width: 100%;
   background: linear-gradient(-170deg, #2376ae 0%, #c16ecf 100%);
+  /* 글자에 그림자 효과를 주는 속성 */
   text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
