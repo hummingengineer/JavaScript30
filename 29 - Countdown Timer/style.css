@@ -1,4 +1,7 @@
 html {
+  /* 요소의 너비와 높이를 계산하는 방법을 지정 */
+  /* 테두리와 안쪽 여백의 크기도 요소의 크기로 고려 */
+  /* 테두리를 기준으로 크기를 정함 */
   box-sizing: border-box;
   font-size: 10px;
   background: #8E24AA;
@@ -10,6 +13,7 @@ html {
 /* :before : 해당 태그의 앞에 놓여진다 */
 /* :after : 해당 태그의 다음 위치에 놓여진다. */
 *, *:before, *:after {
+  /* 부모 요소의 속성값을 상속 받음 */
   box-sizing: inherit;
 }
 
@@ -24,6 +28,7 @@ body {
   font-size: 20rem;
   margin: 0;
   color: white;
+  /* 글자에 그림자 효과를 주는 속성 */
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
 }
 
