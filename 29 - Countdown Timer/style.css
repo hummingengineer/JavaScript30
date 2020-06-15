@@ -34,6 +34,9 @@ body {
 
 .timer {
   display: flex;
+  /* vh = viewport height */
+  /* 현재 실행중인 스크린 크기에 맞춰 상대적 크기를 반환 */
+  /* 100vh가 전체 화면의 기준 */
   min-height: 100vh;
   /* 플렉스 컨테이너 내의 아이템을 배치할 때 사용할 주축 및 방향(정방향, 역방향)을 지정 */
   flex-direction: column;
