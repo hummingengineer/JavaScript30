@@ -79,6 +79,7 @@ body {
 .timer__button:hover,
 .timer__button:focus {
   background: rgba(0,0,0,0.2);
+  /* border 바깥 외곽선 */
   outline: 0;
 }
 
