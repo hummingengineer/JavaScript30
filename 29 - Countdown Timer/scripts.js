@@ -4,4 +4,7 @@ function timer(seconds) {
   console.log({now, then});
 
   // Every single second, we need to display the amount of time left
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+  }, 1000);
 }
