@@ -1,4 +1,5 @@
 let countdown;
+const timerDisplay = document.querySelector('.display__time-left');
 
 function timer(seconds) {
   const now = Date.now(); // now is in milliseconds
@@ -28,5 +29,9 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-  console.log(seconds);
+  // display time left and start working with converting it to minutes
+  const minutes = Math.floor(seconds / 60);
+  // how many seconds left
+  const remainderSeconds = seconds % 60;
+  console.log({minutes, remainderSeconds});
 }
