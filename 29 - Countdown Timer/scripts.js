@@ -33,5 +33,7 @@ function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
   // how many seconds left
   const remainderSeconds = seconds % 60;
-  console.log({minutes, remainderSeconds});
+  // 03분처럼 자리를 맞춰주기 위한 구문
+  const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+  timerDisplay.textContent = display;
 }
