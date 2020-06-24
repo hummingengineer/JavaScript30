@@ -106,6 +106,8 @@ body {
   height: 5px;
   transition: height 0.3s;
   background: rgba(0,0,0,0.5);
+  /* 요소 위에 마우스 커서가 올라갔을 때 보여줄 모양을 지정 */
+  /* 양방향 크기 조절 커서 */
   cursor: ew-resize;
 }
 
