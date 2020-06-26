@@ -38,3 +38,8 @@ function displayTimeLeft(seconds) {
   document.title = display;
   timerDisplay.textContent = display;
 }
+
+function startTimer() {
+  const seconds = parseInt(this.dataset.time);
+  timer(seconds);
+}
