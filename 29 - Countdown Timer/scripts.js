@@ -35,8 +35,14 @@ function displayTimeLeft(seconds) {
   const remainderSeconds = seconds % 60;
   // 03분처럼 자리를 맞춰주기 위한 구문
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
-  document.title = display;
+  document.title = display; // browser title
   timerDisplay.textContent = display;
+}
+
+// function which is showing the ending time
+function displayEndTime(timestamp) {
+  const end = new Date(timestamp);
+  const hour = end.getHours();
 }
 
 function startTimer() {
