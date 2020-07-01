@@ -20,6 +20,7 @@ body {
   min-height: 100vh;
   /* 두 개 이상의 색이 직선을 따라 점진적으로 변화하는 이미지를 생성 */
   background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+  /* 배경 지역이 배경이미지로 완전히 덮이도록 이미지를 가능한 크게 해서 표시 */
   background-size: cover;
   align-items: center;
   justify-content: center;
