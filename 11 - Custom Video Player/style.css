@@ -79,6 +79,8 @@ body {
   /* translate () 함수는 기본적으로 X 축과 Y 축을 따라 지정된 거리만큼 요소를 이동시킬 때 사용 */
   /* translateX(거리) 함수는 좌우(수평 방향)의 이동 거리 값을 지정 */
   transform: translateY(100%) translateY(-5px);
+  /* 모든 속성에 트렌지션 효과가 나타남 */
+  /* transition-duration 속성은 트렌지션을 완수하는 데 걸리는 시간 */
   transition: all .3s;
   /* flex-wrap : 나열된 요소들의 총 넓이가 부모 넓이 보다 클 때, 이 요소들을 다음 줄에 이어서 나열(정렬) 해주는 기능 */
   flex-wrap: wrap;
