@@ -24,6 +24,7 @@ html {
 svg {
   fill:white;
   background: rgba(0,0,0,0.1);
+  /* 요소의 안쪽 여백 */
   padding: 20px;
   border-radius: 50%;
   width: 200px;
