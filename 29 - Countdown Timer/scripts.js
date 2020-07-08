@@ -66,4 +66,5 @@ document.customForm.addEventListener('submit', function(e) {
   const mins = this.minutes.value;
   console.log(mins);
   timer(mins * 60);
+  this.reset();
 })
