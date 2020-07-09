@@ -62,6 +62,7 @@ function startTimer() {
 
 buttons.forEach(button => button.addEventListener('click', startTimer));
 document.customForm.addEventListener('submit', function(e) {
+  // 이벤트를 취소할 수 있는 경우, 이벤트의 전파를 막지않고 그 이벤트를 취소
   e.preventDefault();
   const mins = this.minutes.value;
   console.log(mins);
