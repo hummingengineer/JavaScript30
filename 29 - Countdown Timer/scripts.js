@@ -61,6 +61,9 @@ function startTimer() {
 }
 
 buttons.forEach(button => button.addEventListener('click', startTimer));
+// In HTML, if a element has a name attribute, you can just type document.nameAttribute
+// e.g. document.customForm will give us the form element
+// Similarly, if your input also has a name, it'll just nest itself .minutes and that will give us the input. e.g. document.customForm.minutes
 document.customForm.addEventListener('submit', function(e) {
   // 이벤트를 취소할 수 있는 경우, 이벤트의 전파를 막지않고 그 이벤트를 취소
   e.preventDefault();
