@@ -13,6 +13,7 @@ body {
   font-family: sans-serif;
   background-color: #3BC1AC;
   display: flex;
+  /* 지정된 HTML 요소가 가질 수 있는 최소 높이(height)를 설정 */
   min-height: 100vh;
   align-items: center;
 
