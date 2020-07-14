@@ -48,6 +48,8 @@ input.search {
 
 .suggestions li {
   background: white;
+  /* CSS를 사용하여 HTML 목록 디자인을 수정할 때 사용되는 속성 */
+  /* style 속성의 값을 none으로 설정하면 해당 HTML 목록 태그의 목록 기능이 사라진다 */
   list-style: none;
   border-bottom: 1px solid #D8D8D8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
