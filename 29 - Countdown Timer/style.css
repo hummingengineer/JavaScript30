@@ -58,6 +58,10 @@ body {
 .timer__controls input {
   flex: 1;
   border: 0;
+  /* rem(root em)은 최상위 요소인 html요소에 비례하여 크기를 가지는 상대적인 길이 */
+  /* html 요소에 font-size를 고정값으로 지정해 두면 그 비율에 따라 크기가 계산됨 */
+  /* html에서 사이즈를 지정하지 않으면 기본적으로 시스템 사이즈가 적용됨 */
+  /* html의 기본 시스템 사이즈는 { font-size:16px;} */
   padding: 2rem;
 }
 
