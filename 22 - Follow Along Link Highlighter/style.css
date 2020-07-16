@@ -36,6 +36,7 @@ a {
 
 .highlight {
   transition: all 0.2s;
+  /* 아래쪽 테두리를 설정 */
   border-bottom: 2px solid white;
   position: absolute;
   top: 0;
