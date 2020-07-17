@@ -59,6 +59,10 @@ a {
 }
 
 .menu a {
+  /* inline-block 은 말그대로 inline의 특징과 block의 특징을 모두 가진 요소 */
+  /* 줄바꿈이 이루어지지 않음*/
+  /* block처럼 width와 height를 지정 가능 */
+  /* 만약 width와 height를 지정하지 않을 경우, inline과 같이 컨텐츠만큼 영역이 잡힌다. */
   display: inline-block;
   padding: 5px;
   margin: 0 20px;
