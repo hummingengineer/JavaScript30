@@ -45,6 +45,7 @@ a {
   /* 요소의 수직 위치 정하는 속성 */
   z-index: -1;
   border-radius: 20px;
+  /* block이란 줄을 바꾸지 않고 좌측부터 우측까지 모든 영역을 차지하게 되는 성질 */
   display: block;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
