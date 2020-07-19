@@ -15,6 +15,7 @@ body {
   display: flex;
   /* 지정된 HTML 요소가 가질 수 있는 최소 높이(height)를 설정 */
   /* 이 속성의 기본 설정값은 0이며, 해당 HTML 요소의 높이에 제한을 두지 않겠다는 의미 */
+  /* min-height 속성을 설정하면 해당 HTML 요소의 높이를 설정된 높이 이하로 제한한다 */
   min-height: 100vh;
   align-items: center;
 
