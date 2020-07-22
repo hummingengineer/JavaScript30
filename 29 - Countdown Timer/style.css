@@ -80,6 +80,9 @@ body {
   font-family: 'Inconsolata', monospace;
 }
 
+/* :hover CSS 의사 클래스는 사용자가 포인팅 장치를 사용해 상호작용 중인 요소를 선택 */
+/* 보통 사용자의 커서(마우스 포인터)가 요소 위에 올라가 있으면 선택 */
+/* :hover 가상 클래스는 마우스 오버 했을 때 상태 */
 .timer__button:hover,
 .timer__button:focus {
   background: rgba(0,0,0,0.2);
