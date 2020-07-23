@@ -18,8 +18,6 @@ function timer(seconds) {
     // we need to figure out is how much time is left on the clock
     // "then" which is when it stops
     const secondsLeft = Math.round((then - Date.now()) / 1000); // For milliseconds
-    // we're gonna run it immediately once and then once again every single time that we do that interval
-    displayTimeLeft(seconds);
     
     // check if we should stop it!
     // <= 0이 아닌 < 0인 이유는 setInterval does not run immediately.
@@ -66,8 +64,9 @@ buttons.forEach(button => button.addEventListener('click', startTimer));
 // Similarly, if your input also has a name, it'll just nest itself .minutes and that will give us the input. e.g. document.customForm.minutes
 document.customForm.addEventListener('submit', function(e) {
   // 이벤트를 취소할 수 있는 경우, 이벤트의 전파를 막지않고 그 이벤트를 취소
+  // 새로고침 방지
   e.preventDefault();
-  const mins = this.minutes.value;
+  const mins = this.minutes.value; // "this" is form
   console.log(mins);
   timer(mins * 60);
   this.reset();
