@@ -1,4 +1,5 @@
 html {
+  /* 테두리를 기준으로 박스의 크기 지정 */
   box-sizing: border-box;
   font-size: 10px;
   background: #ffc600;
