@@ -39,6 +39,7 @@ h1 {
 
 .hole {
   flex: 1 0 33.33%;
+  /* 넘치는 부분은 잘려서 보여지지 않음 */
   overflow: hidden;
   position: relative;
 }
