@@ -44,6 +44,7 @@ h1 {
   flex: 1 0 33.33%;
   /* 넘치는 부분은 잘려서 보여지지 않음 */
   overflow: hidden;
+  /* 원래 자기가 위치해야 하는 곳(static)을 기준으로 상대적인 offset 거리 만큼 이동 */
   position: relative;
 }
 
