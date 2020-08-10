@@ -17,6 +17,8 @@ body {
   padding: 0;
   display: flex;
   background: #7A419B;
+  /* 요소의 최소 높이를 설정 */
+  /* min-height 속성은 지정된 HTML 요소가 가질 수 있는 최소 높이(height)를 설정 */
   min-height: 100vh;
   /* 두 개 이상의 색이 직선을 따라 점진적으로 변화하는 이미지를 생성 */
   background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
