@@ -16,6 +16,8 @@ input {
 }
 
 .search-form {
+  /* 요소의 최대 너비를 설정 */
+  /* max-width 속성으로 너비를 설정하면 줄어드는 웹 브라우저의 크기에 맞춰 해당 HTML 요소의 너비도 자동으로 줄어든다. */
   max-width: 400px;
   margin: 50px auto;
 }
