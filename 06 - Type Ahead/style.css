@@ -59,6 +59,7 @@ input.search {
   padding: 20px;
   transition: background 0.2s;
   display: flex;
+  /* 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치된다. */
   justify-content: space-between;
   text-transform: capitalize;
 }
