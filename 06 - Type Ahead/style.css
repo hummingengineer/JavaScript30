@@ -74,6 +74,9 @@ input.search {
 }
 
 .suggestions li:nth-child(odd) {
+  /* perspective : 3D 요소에 원근감을 표현할 때 사용할 픽셀 수를 설정 */
+  /* rotateX : 해당 요소를 주어진 각도만큼 x축을 기준으로 회전 */
+  /* translateY : 현재의 위치에서 해당 요소를 주어진 y축의 거리만큼 이동 */
   transform: perspective(100px) rotateX(-3deg) translateY(3px);
   background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
 }
