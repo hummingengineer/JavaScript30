@@ -73,7 +73,7 @@ h2 {
 .plates input + label:before {
   /* 선택한 요소의 내용 앞이나 뒤에 콘텐트를 붙입니다 */
   content: '⬜️';  /* blank square emoji */
-  margin-right: 10px;
+  margin-right: 10px; /* 요소의 오른쪽에 바깥 여백 영역을 설정 */
 }
 
 /* When the "input" is checked, turn that content from a blank square into a taco */
