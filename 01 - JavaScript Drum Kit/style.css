@@ -35,7 +35,7 @@ body, html {  /* 중복되는 스타일 내용을 태그, ID, CLASS 적용하기
 .playing {
   transform: scale(1.1);            /* 요소에 회전, 크기 조절, 기울이기, 이동 효과를 부여. transform의 scale로 요소를 확대 또는 축소할 수 있다. */
   border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  box-shadow: 0 0 1rem #ffc600;     /* 요소의 테두리를 감싼 그림자 효과를 추가 */
 }
 
 kbd {
